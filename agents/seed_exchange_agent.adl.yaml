@@ -1,0 +1,33 @@
+agent:
+  id: seed_exchange_agent
+  version: 0.1.0
+  title: Seed Exchange Agent
+  purpose: >
+    Help prepare and check seed exchange records between local stewards,
+    libraries, and regional guild nodes.
+
+inputs:
+  - exchange_request
+  - seed_accession_record
+  - availability_status
+  - stewardship_constraints
+
+outputs:
+  - exchange_summary
+  - eligibility_check
+  - traceability_record
+
+actions:
+  - verify_required_fields
+  - summarize_exchange_terms
+  - link_accession_and_event_records
+  - generate_exchange_packet
+
+constraints:
+  - must_not_approve_exchange_autonomously
+  - must_surface_pollination_and_adaptation_notes
+  - must_preserve_traceability
+
+trust_boundary:
+  level: advisory
+  human_approval_required: true
