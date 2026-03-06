@@ -1,0 +1,61 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.org/schemas/council_decision.schema.json",
+  "title": "CouncilDecision",
+  "type": "object",
+  "required": [
+    "decision_id",
+    "council_id",
+    "timestamp",
+    "decision_type",
+    "summary",
+    "outcome"
+  ],
+  "properties": {
+    "decision_id": {
+      "type": "string"
+    },
+    "council_id": {
+      "type": "string"
+    },
+    "timestamp": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "decision_type": {
+      "type": "string",
+      "enum": [
+        "protocol_update",
+        "exchange_approval",
+        "dispute_resolution",
+        "federation_change",
+        "stewardship_priority",
+        "resource_allocation"
+      ]
+    },
+    "summary": {
+      "type": "string"
+    },
+    "outcome": {
+      "type": "string",
+      "enum": [
+        "approved",
+        "rejected",
+        "deferred",
+        "amended"
+      ]
+    },
+    "rationale": {
+      "type": "string"
+    },
+    "related_event_ids": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "related_accession_ids": {
+      "type": "array",
+      "items": { "type": "string" }
+    }
+  },
+  "additionalProperties": false
+}
