@@ -1,0 +1,28 @@
+{
+  "event_id": "evt-2026-03-06-001",
+  "event_type": "seed_saved",
+  "timestamp": "2026-03-06T10:30:00Z",
+  "location": {
+    "name": "Veneta Research Farm",
+    "bioregion_id": "cascadia-willamette",
+    "latitude": 44.0473,
+    "longitude": -123.3496
+  },
+  "actor": {
+    "actor_id": "steward-mikeb",
+    "actor_type": "person",
+    "display_name": "Mike Brunt"
+  },
+  "seed_accession_id": "csg-fava-broadwindsor-001",
+  "notes": "Seed saved from strongest plants after local adaptation observations.",
+  "observations": [
+    "vigorous spring growth",
+    "good pod set",
+    "seed retained from healthiest plants"
+  ],
+  "provenance": {
+    "source_system": "Perma-Ledger",
+    "source_record_id": "farmos-planting-12345",
+    "entered_by": "local steward"
+  }
+}
