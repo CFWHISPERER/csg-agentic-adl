@@ -1,0 +1,33 @@
+agent:
+  id: climate_observer_agent
+  version: 0.1.0
+  title: Climate Observer Agent
+  purpose: >
+    Assist in capturing local climate anomalies that may affect seed viability,
+    propagation timing, and regional adaptation.
+
+inputs:
+  - weather_observation
+  - field_note
+  - seasonal_baseline
+  - location_context
+
+outputs:
+  - stewardship_event
+  - anomaly_summary
+  - adaptation_note_suggestion
+
+actions:
+  - detect_anomaly
+  - compare_with_baseline
+  - produce_summary
+  - suggest_follow_up_observation
+
+constraints:
+  - must_keep_raw_observations_separate_from_inference
+  - must_not_overstate_confidence
+  - must_preserve_time_and_place_context
+
+trust_boundary:
+  level: advisory
+  human_approval_required: true
