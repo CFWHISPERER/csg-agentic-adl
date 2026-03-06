@@ -1,0 +1,91 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.org/schemas/stewardship_event.schema.json",
+  "title": "StewardshipEvent",
+  "type": "object",
+  "required": [
+    "event_id",
+    "event_type",
+    "timestamp",
+    "location",
+    "actor"
+  ],
+  "properties": {
+    "event_id": {
+      "type": "string",
+      "description": "Unique identifier for the event."
+    },
+    "event_type": {
+      "type": "string",
+      "enum": [
+        "seed_saved",
+        "seed_sown",
+        "seed_shared",
+        "seed_received",
+        "germination_observed",
+        "pollination_observed",
+        "crop_failure",
+        "climate_anomaly",
+        "soil_observation",
+        "accession_updated",
+        "decision_recorded"
+      ]
+    },
+    "timestamp": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "location": {
+      "type": "object",
+      "required": ["name"],
+      "properties": {
+        "name": { "type": "string" },
+        "bioregion_id": { "type": "string" },
+        "latitude": { "type": "number" },
+        "longitude": { "type": "number" }
+      },
+      "additionalProperties": false
+    },
+    "actor": {
+      "type": "object",
+      "required": ["actor_id", "actor_type"],
+      "properties": {
+        "actor_id": { "type": "string" },
+        "actor_type": {
+          "type": "string",
+          "enum": [
+            "person",
+            "guild",
+            "library",
+            "farm",
+            "agent",
+            "council",
+            "sensor"
+          ]
+        },
+        "display_name": { "type": "string" }
+      },
+      "additionalProperties": false
+    },
+    "seed_accession_id": {
+      "type": "string"
+    },
+    "notes": {
+      "type": "string"
+    },
+    "observations": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "provenance": {
+      "type": "object",
+      "properties": {
+        "source_system": { "type": "string" },
+        "source_record_id": { "type": "string" },
+        "entered_by": { "type": "string" }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}
