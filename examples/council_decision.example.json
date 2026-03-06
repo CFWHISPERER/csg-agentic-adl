@@ -1,0 +1,15 @@
+{
+  "decision_id": "cd-2026-03-06-001",
+  "council_id": "cascadia-seed-guild-council-01",
+  "timestamp": "2026-03-06T18:00:00Z",
+  "decision_type": "protocol_update",
+  "summary": "Adopt initial stewardship event schema for trial use across participating guild nodes.",
+  "outcome": "approved",
+  "rationale": "A shared event structure improves portability, traceability, and federation readiness.",
+  "related_event_ids": [
+    "evt-2026-03-06-001"
+  ],
+  "related_accession_ids": [
+    "csg-fava-broadwindsor-001"
+  ]
+}
