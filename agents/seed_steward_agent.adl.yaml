@@ -1,0 +1,38 @@
+agent:
+  id: seed_steward_agent
+  version: 0.1.0
+  title: Seed Steward Agent
+  purpose: >
+    Assist a local steward or seed library with recording seed-related actions,
+    validating event structure, and preparing data for federation.
+
+inputs:
+  - seed_accession_record
+  - stewardship_event
+  - seasonal_notes
+  - climate_notes
+
+outputs:
+  - validated_stewardship_event
+  - accession_update_suggestion
+  - exchange_readiness_note
+
+actions:
+  - validate_event
+  - suggest_accession_updates
+  - prepare_exchange_summary
+  - flag_missing_fields
+
+constraints:
+  - must_not_modify_canonical_record_without_human_review
+  - must_preserve_provenance
+  - must_emit_human_readable_summary
+
+trust_boundary:
+  level: advisory
+  human_approval_required: true
+
+interoperability:
+  schemas:
+    - schemas/stewardship_event.schema.json
+    - schemas/seed_accession.schema.json
