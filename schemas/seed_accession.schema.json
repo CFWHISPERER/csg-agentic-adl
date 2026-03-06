@@ -1,0 +1,60 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.org/schemas/seed_accession.schema.json",
+  "title": "SeedAccession",
+  "type": "object",
+  "required": [
+    "accession_id",
+    "common_name",
+    "scientific_name",
+    "steward_status"
+  ],
+  "properties": {
+    "accession_id": {
+      "type": "string"
+    },
+    "common_name": {
+      "type": "string"
+    },
+    "scientific_name": {
+      "type": "string"
+    },
+    "cultivar_or_landrace": {
+      "type": "string"
+    },
+    "plant_family": {
+      "type": "string"
+    },
+    "origin_notes": {
+      "type": "string"
+    },
+    "bioregion_id": {
+      "type": "string"
+    },
+    "steward_status": {
+      "type": "string",
+      "enum": [
+        "active",
+        "trial",
+        "archived",
+        "lost",
+        "shared",
+        "regenerating"
+      ]
+    },
+    "adaptation_notes": {
+      "type": "string"
+    },
+    "pollination_notes": {
+      "type": "string"
+    },
+    "storage_notes": {
+      "type": "string"
+    },
+    "related_accessions": {
+      "type": "array",
+      "items": { "type": "string" }
+    }
+  },
+  "additionalProperties": false
+}
