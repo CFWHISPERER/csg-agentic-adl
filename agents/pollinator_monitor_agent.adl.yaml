@@ -1,0 +1,33 @@
+agent:
+  id: pollinator_monitor_agent
+  version: 0.1.0
+  title: Pollinator Monitor Agent
+  purpose: >
+    Record and summarize pollinator observations relevant to seed production,
+    flowering timing, and ecological resilience.
+
+inputs:
+  - pollinator_observation
+  - flowering_window
+  - location_context
+  - weather_context
+
+outputs:
+  - stewardship_event
+  - pollination_summary
+  - anomaly_flag
+
+actions:
+  - normalize_observation
+  - compare_against_expected_timing
+  - record_pollination_event
+  - highlight_low-observation-periods
+
+constraints:
+  - must_label_inferred_data_as_inferred
+  - must_not_claim_species_certainty_without_source
+  - must_preserve_original_observation_note
+
+trust_boundary:
+  level: observational
+  human_approval_required: true
