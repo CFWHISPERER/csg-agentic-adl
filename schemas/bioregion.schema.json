@@ -1,0 +1,37 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.org/schemas/bioregion.schema.json",
+  "title": "Bioregion",
+  "type": "object",
+  "required": [
+    "bioregion_id",
+    "name",
+    "description"
+  ],
+  "properties": {
+    "bioregion_id": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "watersheds": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "climate_notes": {
+      "type": "string"
+    },
+    "ecological_notes": {
+      "type": "string"
+    },
+    "member_nodes": {
+      "type": "array",
+      "items": { "type": "string" }
+    }
+  },
+  "additionalProperties": false
+}
