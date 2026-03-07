@@ -30,6 +30,8 @@ E --> |Protocols & Schemas| C
 E --> |Open Data| F
 ```
 ## Seed Infrastructure Protocol
+The Seed Infrastructure Protocol defines an open framework for
+coordinating distributed seed stewardship networks and ecological data systems.
 
 The formal protocol specification can be found in:
 
