@@ -7,6 +7,29 @@
 # csg-agentic-adl
 Open schemas, protocols, and agent definitions for bioregional seed stewardship, fractal governance, and federated ecological coordination. This repository explores a polycentric stewardship architecture combining
 seed ecology, fractal governance, and agent-based coordination systems.
+## Architecture (Mermaid Diagram)
+
+```mermaid
+flowchart TD
+
+A[Seeds & Ecology]
+B[Local Seed Stewards]
+C[Regional Seed Guilds]
+D[Fractal Sortition Councils]
+E[Agentic ADL Hub]
+F[Knowledge Commons]
+
+A --> B
+B --> C
+C --> D
+D --> E
+E --> F
+
+B --> |Stewardship Events| E
+C --> |Seed Exchange| B
+E --> |Protocols & Schemas| C
+E --> |Open Data| F
+```
 ## Architecture Overview
 ![Bioregional Polycentric Stewardship Network](docs/githubArchitecture.png)
 # CSG Agentic ADL
