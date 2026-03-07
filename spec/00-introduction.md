@@ -20,3 +20,11 @@ The protocol defines standards for:
 • governance decisions
 • agent coordination
 • network federation
+
+## Specification Documents
+
+The Seed Infrastructure Protocol currently includes:
+
+- [00 Introduction](00-introduction.md)
+- [01 Core Concepts](01-core-concepts.md)
+- [08 Proof of Stewardship](08-proof-of-stewardship.md)
