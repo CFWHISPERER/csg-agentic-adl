@@ -1,5 +1,9 @@
 # csg-agentic-adl
 Open schemas, protocols, and agent definitions for bioregional seed stewardship, fractal governance, and federated ecological coordination.
+
+## Architecture Overview
+![Bioregional Polycentric Stewardship Network](docs/githubArchitecture.png)
+
 # CSG Agentic ADL
 
 A lightweight open repository for defining agent-readable stewardship protocols, event schemas, and governance patterns for bioregional seed networks.
