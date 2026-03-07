@@ -28,6 +28,11 @@ B --> |Stewardship Events| E
 C --> |Seed Exchange| B
 E --> |Protocols & Schemas| C
 E --> |Open Data| F
+## Seed Infrastructure Protocol
+
+The formal protocol specification can be found in:
+
+spec/00-introduction.md
 ```
 ## Architecture Overview
 ![Bioregional Polycentric Stewardship Network](docs/githubArchitecture.png)
