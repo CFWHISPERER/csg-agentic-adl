@@ -29,6 +29,12 @@ C --> |Seed Exchange| B
 E --> |Protocols & Schemas| C
 E --> |Open Data| F
 ```
+## Seed Infrastructure Protocol
+
+The formal protocol specification can be found in:
+
+- [Seed Infrastructure Protocol Introduction](spec/00-introduction.md)
+- [Core Concepts](spec/01-core-concepts.md)
 ## Architecture Overview
 ![Bioregional Polycentric Stewardship Network](docs/githubArchitecture.png)
 # CSG Agentic ADL
