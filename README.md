@@ -12,7 +12,7 @@ seed ecology, fractal governance, and agent-based coordination systems.
 - Data schemas → schemas/
 - Agent definitions → agents/
 - Example data → examples/
-## Architecture (Mermaid Diagram)
+## Architecture (Mermaid Overview Diagram)
 
 ```mermaid
 flowchart TD
@@ -34,6 +34,61 @@ B --> |Stewardship Events| E
 C --> |Seed Exchange| B
 E --> |Protocols & Schemas| C
 E --> |Open Data| F
+```
+## Repository Architecture Full Diagram
+
+```mermaid
+flowchart TD
+
+R[CSG Agentic ADL Repository]
+
+R --> S[spec/]
+R --> D[docs/]
+R --> J[schemas/]
+R --> A[agents/]
+R --> P[protocols/]
+R --> E[examples/]
+
+S --> S1[00-introduction.md]
+S --> S2[01-core-concepts.md]
+S --> S3[Future spec documents]
+
+D --> D1[Architecture explanations]
+D --> D2[Governance notes]
+D --> D3[Reference images]
+
+J --> J1[stewardship_event.schema.json]
+J --> J2[council_decision.schema.json]
+J --> J3[other protocol schemas]
+
+A --> A1[seed steward agent]
+A --> A2[seed exchange agent]
+A --> A3[climate observer agent]
+
+P --> P1[seed exchange protocol]
+P --> P2[fractal sortition protocol]
+P --> P3[federation protocol]
+
+E --> E1[stewardship event examples]
+E --> E2[council decision examples]
+E --> E3[sample data objects]
+
+S -->|defines rules for| J
+S -->|defines roles for| A
+S -->|guides processes in| P
+J -->|validated by| E
+A -->|uses| J
+A -->|operates within| P
+D -->|explains| S
+D -->|explains| J
+D -->|explains| A
+
+K[Knowledge Commons]
+E --> K
+A --> K
+P --> K
+J --> K
+S --> K
 ```
 ## Seed Infrastructure Protocol
 The Seed Infrastructure Protocol defines an open framework for
