@@ -23,8 +23,14 @@ The protocol defines standards for:
 
 ## Specification Documents
 
-The Seed Infrastructure Protocol currently includes:
+The Seed Infrastructure Protocol specification currently includes:
 
-- [00 Introduction](00-introduction.md)
 - [01 Core Concepts](01-core-concepts.md)
+- [02 Network Architecture](02-network-architecture.md)
+- [03 Governance Model](03-governance-model.md)
+- [04 Data Schemas](04-data-schemas.md)
+- [05 Agent Interactions](05-agent-interactions.md)
+- [06 Federation Protocol](06-federation-protocol.md)
+- [07 Security and Trust](07-security-and-trust.md)
 - [08 Proof of Stewardship](08-proof-of-stewardship.md)
+- [09 Value Exchange](09-value-exchange.md)
