@@ -5,7 +5,7 @@
 [![License](https://img.shields.io/badge/license-MIT-green)](LICENSE)
 # csg-agentic-adl
 Open schemas, protocols, and agent definitions for bioregional seed stewardship, fractal governance, and federated ecological coordination. This repository explores a polycentric stewardship architecture combining
-seed ecology, fractal governance, and agent-based coordination systems.
+seed ecology, fractal governance, and agent-based coordination systems.  It is important to keep in mind that a very large seed collection/system is physically underpinning this whole initiative.
 ## Repository Overview
 - Protocol specification → spec/
 - Architecture docs → docs/
