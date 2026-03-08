@@ -70,5 +70,130 @@ without prior verification.
 
 These events are recorded as:
 
+Self-reported events remain visible but carry lower validation weight.
+
+---
+
+### 2. Trusted Steward Recommendation
+
+Existing recognized stewards may recommend or endorse new participants.
+
+This creates a **web-of-trust model** similar to systems used in
+open-source communities and decentralized networks.
+
+Benefits include:
+
+- community accountability
+- local knowledge of participants
+- resistance to automated identity abuse
+
+Validation level example:
+
+---
+
+### 3. Cryptographic Identity
+
+Participants may optionally verify their identity using a
+cryptographic authentication system.
+
+One possible mechanism is:
+
+- Dfinity Internet Identity (ICP)
+
+Internet Identity provides:
+
+- device-based authentication
+- cryptographic verification
+- privacy-preserving identity management
+- passwordless login
+
+Other cryptographic identity systems may also be supported.
+
+Cryptographic identity verification may enable higher confidence
+levels for stewardship records.
+
+---
+
+## Event Validation
+
+Stewardship events may pass through multiple validation stages.
+
+Example levels include:
+
+- self_reported
+- peer_confirmed
+- guild_confirmed
+- cryptographically_verified
+- multi_source_verified
+
+Higher validation levels increase the reliability of
+Proof of Stewardship records.
+
+---
+
+## Agent-Assisted Security
+
+Software agents may assist the network by detecting anomalies
+and maintaining data integrity.
+
+Agent functions may include:
+
+- detecting duplicate events
+- identifying abnormal activity patterns
+- validating schema compliance
+- flagging suspicious identity behavior
+- monitoring federation communication
+
+Agents provide **analysis and alerts**, but final decisions
+remain with human governance structures.
+
+---
+
+## Federation Security
+
+Guild nodes exchanging protocol data should verify:
+
+- node identity
+- schema compatibility
+- protocol version
+- message integrity
+
+Federation mechanisms should remain open while protecting
+the network from malicious data injection.
+
+---
+
+## Governance Oversight
+
+Security disputes and contested records are resolved through
+guild governance mechanisms.
+
+Governance bodies may:
+
+- review flagged events
+- investigate unusual patterns
+- revoke malicious records
+- update validation rules
+
+This ensures that security remains accountable to the community.
+
+---
+
+## Design Principle
+
+Security within the Seed Infrastructure Protocol protects the
+integrity of stewardship records and the resilience of the commons
+without imposing centralized control.
+
+The protocol combines:
+
+- human trust networks
+- cryptographic verification
+- automated anomaly detection
+
+to maintain a robust and inclusive ecological coordination system.
+
+---
+
 
 ### Value Exchange and Reciprocity
