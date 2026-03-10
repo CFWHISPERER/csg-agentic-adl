@@ -1,4 +1,9 @@
 # Seed Guild Node
+## Node Architecture Diagram
+
+See the architecture diagram:
+
+docs/diagrams/seed-guild-node-architecture.md
 
 ## Overview
 
