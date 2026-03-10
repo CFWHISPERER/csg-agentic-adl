@@ -94,3 +94,172 @@ These records may include:
 - environmental observations
 
 Records are stored using the protocol’s shared schemas, such as:
+schemas/seed_variety.schema.json
+schemas/stewardship_event.schema.json
+schemas/council_decision.schema.json
+
+
+This allows knowledge to remain portable and interoperable across nodes.
+
+---
+
+### 4. Agent Assistance
+
+Software agents support stewards by helping manage information and coordination.
+
+Typical agent roles include:
+
+- validating stewardship record structure
+- organizing seed accession histories
+- detecting incomplete or duplicate records
+- summarizing adaptation observations
+- assisting with exchange logistics
+- monitoring network health signals
+
+Agents assist with coordination and memory.
+
+They do **not replace human stewardship or governance**.
+
+---
+
+### 5. Guild Governance
+
+Each node includes a governance layer responsible for:
+
+- validating stewardship records
+- resolving disputes
+- maintaining trust within the node
+- coordinating exchanges with other nodes
+- participating in regional councils
+
+Governance may include:
+
+- steward councils
+- rotating sortition panels
+- community review processes
+
+Local governance remains central to legitimacy within the network.
+
+---
+
+## Node Functions
+
+A Seed Guild Node performs several essential functions within the broader network.
+
+### Seed Stewardship
+
+The node maintains living varieties through cultivation and regeneration.
+
+### Knowledge Preservation
+
+Stewards document adaptation and ecological observations across seasons.
+
+### Seed Exchange
+
+The node participates in regional and inter-regional seed exchange networks.
+
+### Steward Recognition
+
+Proof of Stewardship records help recognize meaningful contributions.
+
+### Network Federation
+
+Guild nodes connect with other nodes to form bioregional networks.
+
+---
+
+## Node Federation
+
+Multiple guild nodes form **bioregional seed networks**.
+
+Federation allows nodes to:
+
+- exchange varieties
+- share adaptation knowledge
+- coordinate breeding efforts
+- strengthen regional resilience
+- preserve biodiversity across climates
+
+Federation operates through shared protocol standards rather than centralized control.
+
+---
+
+## Human and Agent Roles
+
+The protocol maintains a clear distinction between human and agent responsibilities.
+
+Human stewards:
+
+- grow and observe plants
+- make ecological judgments
+- steward relationships of trust
+- guide governance processes
+
+Agents:
+
+- organize records
+- validate data structure
+- summarize patterns
+- assist with coordination
+
+This relationship can be summarized simply:
+
+**Humans steward.  
+Agents assist.  
+Councils arbitrate.**
+
+---
+
+## Example Node Structure
+
+A typical guild node may include:
+
+- 5–30 active stewards
+- 50–500 seed varieties
+- seasonal stewardship events
+- local governance council
+- digital record system
+- agent-assisted coordination tools
+
+Each node may vary widely depending on its community and ecological context.
+
+Diversity between nodes strengthens the resilience of the overall network.
+
+---
+
+## Node Independence
+
+Each guild node remains autonomous.
+
+Nodes control:
+
+- their own seed collections
+- local governance structures
+- stewardship practices
+- participation in federation
+
+The protocol does not impose centralized authority.
+
+Instead it provides **shared coordination infrastructure**.
+
+---
+
+## Long-Term Vision
+
+Over time, many guild nodes may form a distributed network of seed stewardship.
+
+Such a network could:
+
+- preserve regional biodiversity
+- strengthen food resilience
+- support open ecological knowledge
+- enable cooperative breeding
+- connect stewards across climates
+
+The Seed Infrastructure Protocol provides the digital coordination layer for this emerging network.
+
+The seeds, however, remain living participants in the system.
+
+They carry memory that no database can replace.
+
+---
