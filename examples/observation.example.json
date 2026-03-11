@@ -1,0 +1,59 @@
+{
+  "observation_id": "2026-03-09-scoulers-willow-rooting-check",
+  "observation_type": "rooting",
+  "title": "Scouler Willow streamside transplant follow-up",
+  "summary": "Follow-up observation of transplanted willow.",
+  "status": "active",
+  "observed_on": "2026-03-09",
+  "season": "spring",
+  "observer": {
+    "name": "Mike Brunt",
+    "role": "steward",
+    "affiliation": "Cascadia Seed Guild"
+  },
+  "location": {
+    "location_type": "riparian_zone",
+    "name": "Veneta Property",
+    "place_description": "Lower stream edge",
+    "bioregion": "Cascadia",
+    "privacy_level": "private"
+  },
+  "observed_entities": [
+    {
+      "label": "Scouler willow",
+      "entity_type": "species",
+      "scientific_name": "Salix scouleriana"
+    }
+  ],
+  "environmental_context": {
+    "soil_moisture_notes": "Moist streamside soil",
+    "light_conditions": "part_shade"
+  },
+  "qualitative_signals": [
+    {
+      "signal_type": "vigor",
+      "description": "Plant appears stable after transplant.",
+      "intensity": "medium",
+      "confidence": "medium"
+    }
+  ],
+  "interpretations": [
+    {
+      "statement": "Streamside location likely supports willow establishment.",
+      "basis": "Willows prefer reliable moisture.",
+      "confidence": "medium"
+    }
+  ],
+  "follow_up_actions": [
+    "Check leaf emergence in 3 weeks."
+  ],
+  "tags": [
+    "willow",
+    "riparian",
+    "rooting"
+  ],
+  "provenance": {
+    "recorded_by": "Mike Brunt",
+    "source_type": "manual_entry"
+  }
+}
