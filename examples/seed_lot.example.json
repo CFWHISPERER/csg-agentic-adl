@@ -1,0 +1,58 @@
+{
+  "seed_lot_id": "2025-sacred-heart-tomato-lot-01",
+  "lot_name": "Sacred Heart Tomato 2025 Save",
+  "status": "in_storage",
+  "lot_type": "saved_seed",
+  "species": {
+    "label": "Sacred Heart Tomato",
+    "scientific_name": "Solanum lycopersicum",
+    "common_name": "Tomato",
+    "record_ref": "schemas/species_record.schema.json"
+  },
+  "variety_name": "Sacred Heart",
+  "lineage_notes": "Seed originally sourced from Peace Seedlings and saved locally.",
+  "source": {
+    "source_type": "self_saved",
+    "source_name": "Mike Brunt",
+    "source_location": "Eugene, Oregon",
+    "source_year": 2025
+  },
+  "collection_or_save": {
+    "saved_by": [
+      "Mike Brunt"
+    ],
+    "save_year": 2025,
+    "save_location": "Eugene, Oregon"
+  },
+  "quantity": {
+    "amount": 348,
+    "unit": "seeds",
+    "estimated": false
+  },
+  "storage": {
+    "storage_location": "Primary seed storage",
+    "container_type": "ammo_case",
+    "redundancy_level": "single_copy"
+  },
+  "viability": {
+    "viability_status": "likely_viable"
+  },
+  "distribution": {
+    "is_shareable": true,
+    "distribution_scope": "guild_distribution"
+  },
+  "stewardship_relevance": [
+    "food_security",
+    "seed_saving",
+    "local_adaptation"
+  ],
+  "tags": [
+    "tomato",
+    "sacred-heart",
+    "food"
+  ],
+  "provenance": {
+    "recorded_by": "Cascadia Seed Guild",
+    "source_type": "manual_entry"
+  }
+}
