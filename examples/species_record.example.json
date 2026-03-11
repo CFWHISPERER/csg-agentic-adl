@@ -1,0 +1,67 @@
+{
+  "record_id": "salix-scouleriana",
+  "record_type": "species",
+  "primary_name": "Scouler Willow",
+  "scientific_name": "Salix scouleriana",
+  "common_names": [
+    "Scouler willow"
+  ],
+  "kingdom": "Plantae",
+  "taxonomy": {
+    "family": "Salicaceae",
+    "genus": "Salix",
+    "species": "scouleriana"
+  },
+  "life_cycle": "woody_perennial",
+  "growth_form": [
+    "tree",
+    "shrub",
+    "wetland_plant"
+  ],
+  "native_status": "native",
+  "origin_regions": [
+    "Western North America"
+  ],
+  "stewardship_relevance": [
+    "pollinator_support",
+    "habitat_support",
+    "erosion_control"
+  ],
+  "ecological_functions": [
+    "Early-season pollen source for insects",
+    "Riparian bank stabilization"
+  ],
+  "propagation": {
+    "primary_methods": [
+      "cutting"
+    ],
+    "propagation_notes": "Hardwood cuttings root readily in moist soil conditions."
+  },
+  "growing_conditions": {
+    "sun_exposure": [
+      "full_sun",
+      "part_shade"
+    ],
+    "moisture_preferences": [
+      "moist",
+      "wet"
+    ]
+  },
+  "ecological_relationships": [
+    {
+      "relationship_type": "pollinator_support",
+      "description": "Important early pollen for bees and other insects.",
+      "confidence": "high"
+    }
+  ],
+  "status": "active",
+  "tags": [
+    "willow",
+    "riparian",
+    "pollinator"
+  ],
+  "provenance": {
+    "recorded_by": "Cascadia Seed Guild",
+    "source_type": "manual_entry"
+  }
+}
