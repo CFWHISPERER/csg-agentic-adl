@@ -1,0 +1,784 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://cascadiaseedguild.org/schemas/species_record.schema.json",
+  "title": "Species Record",
+  "description": "A structured record describing a species, subspecies, variety, landrace, cultivar, or other biologically relevant plant-centered entity stewarded or studied by the Cascadia Seed Guild.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "record_id",
+    "record_type",
+    "primary_name",
+    "kingdom",
+    "stewardship_relevance",
+    "status"
+  ],
+  "properties": {
+    "record_id": {
+      "type": "string",
+      "description": "A unique identifier for the record.",
+      "pattern": "^[a-z0-9][a-z0-9\\-_]*$"
+    },
+    "record_type": {
+      "type": "string",
+      "description": "The level or kind of biological/cultivated record being described.",
+      "enum": [
+        "species",
+        "subspecies",
+        "variety",
+        "cultivar",
+        "landrace",
+        "hybrid",
+        "ecotype",
+        "guild_function_entry",
+        "other"
+      ]
+    },
+    "primary_name": {
+      "type": "string",
+      "description": "The main human-readable label for this record."
+    },
+    "scientific_name": {
+      "type": "string",
+      "description": "The accepted or best-known scientific name, if known."
+    },
+    "common_names": {
+      "type": "array",
+      "description": "Common names associated with the record.",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "synonyms": {
+      "type": "array",
+      "description": "Alternative scientific or common names used for this record.",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "kingdom": {
+      "type": "string",
+      "enum": [
+        "Plantae",
+        "Fungi",
+        "Other"
+      ]
+    },
+    "taxonomy": {
+      "$ref": "#/$defs/taxonomy"
+    },
+    "lineage": {
+      "$ref": "#/$defs/lineage"
+    },
+    "life_cycle": {
+      "type": "string",
+      "description": "General life-cycle pattern.",
+      "enum": [
+        "annual",
+        "biennial",
+        "perennial",
+        "short_lived_perennial",
+        "woody_perennial",
+        "unknown",
+        "other"
+      ]
+    },
+    "growth_form": {
+      "type": "array",
+      "description": "General growth forms associated with this record.",
+      "items": {
+        "type": "string",
+        "enum": [
+          "tree",
+          "shrub",
+          "subshrub",
+          "vine",
+          "grass",
+          "forb",
+          "herb",
+          "legume",
+          "root_crop",
+          "bulb",
+          "wetland_plant",
+          "aquatic_plant",
+          "fungal_associated",
+          "groundcover",
+          "climber",
+          "other"
+        ]
+      },
+      "uniqueItems": true
+    },
+    "native_status": {
+      "type": "string",
+      "description": "How the record relates to the region in which it is being stewarded.",
+      "enum": [
+        "native",
+        "introduced",
+        "naturalized",
+        "widely_cultivated",
+        "uncertain",
+        "other"
+      ]
+    },
+    "origin_regions": {
+      "type": "array",
+      "description": "Known or believed geographic origin regions.",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "stewardship_relevance": {
+      "type": "array",
+      "description": "Why this species or variety matters to the guild.",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "enum": [
+          "food",
+          "seed_saving",
+          "pollinator_support",
+          "soil_building",
+          "nitrogen_fixing",
+          "mycorrhizal_relationship",
+          "habitat_support",
+          "medicinal",
+          "fiber",
+          "fodder",
+          "fuel",
+          "agroforestry",
+          "erosion_control",
+          "water_management",
+          "shade",
+          "windbreak",
+          "cultural_significance",
+          "education",
+          "research",
+          "climate_resilience",
+          "emergency_propagation",
+          "other"
+        ]
+      },
+      "uniqueItems": true
+    },
+    "ecological_functions": {
+      "type": "array",
+      "description": "Practical ecological roles this record may serve.",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "phenology": {
+      "$ref": "#/$defs/phenology"
+    },
+    "propagation": {
+      "$ref": "#/$defs/propagation"
+    },
+    "seed_saving": {
+      "$ref": "#/$defs/seed_saving"
+    },
+    "growing_conditions": {
+      "$ref": "#/$defs/growing_conditions"
+    },
+    "ecological_relationships": {
+      "type": "array",
+      "description": "Relationships to pollinators, fungi, companion plants, soil conditions, or broader guild functions.",
+      "items": {
+        "$ref": "#/$defs/ecological_relationship"
+      }
+    },
+    "uses": {
+      "type": "array",
+      "description": "Human or broader stewardship uses associated with the record.",
+      "items": {
+        "$ref": "#/$defs/use_item"
+      }
+    },
+    "adaptation_notes": {
+      "type": "array",
+      "description": "Observations about local adaptation, resilience, or stress tolerance.",
+      "items": {
+        "type": "string"
+      }
+    },
+    "risks_and_cautions": {
+      "type": "array",
+      "description": "Known cautions such as invasiveness risk, toxicity, disease susceptibility, or cross-pollination concerns.",
+      "items": {
+        "type": "string"
+      }
+    },
+    "distribution_context": {
+      "$ref": "#/$defs/distribution_context"
+    },
+    "media": {
+      "type": "array",
+      "description": "Images, diagrams, scans, or documents associated with the record.",
+      "items": {
+        "$ref": "#/$defs/media_item"
+      }
+    },
+    "citations": {
+      "type": "array",
+      "description": "Supporting references for taxonomy, uses, ecological function, or seed-saving notes.",
+      "items": {
+        "$ref": "#/$defs/citation"
+      }
+    },
+    "related_records": {
+      "type": "array",
+      "description": "Cross-links to related species, seed lots, stewardship events, farmOS entries, or documents.",
+      "items": {
+        "$ref": "#/$defs/related_record"
+      }
+    },
+    "status": {
+      "type": "string",
+      "description": "Current status of this record within the repository.",
+      "enum": [
+        "draft",
+        "active",
+        "archived",
+        "deprecated",
+        "needs_review"
+      ]
+    },
+    "tags": {
+      "type": "array",
+      "description": "User-defined tags for grouping and retrieval.",
+      "items": {
+        "type": "string",
+        "pattern": "^[a-z0-9][a-z0-9\\-_]*$"
+      },
+      "uniqueItems": true
+    },
+    "provenance": {
+      "$ref": "#/$defs/provenance"
+    },
+    "agent_assistance": {
+      "type": "array",
+      "description": "AI or software agents that helped structure, summarize, classify, or link this record.",
+      "items": {
+        "$ref": "#/$defs/agent_assistance"
+      }
+    }
+  },
+  "$defs": {
+    "taxonomy": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "domain": {
+          "type": "string"
+        },
+        "division_or_phylum": {
+          "type": "string"
+        },
+        "class": {
+          "type": "string"
+        },
+        "order": {
+          "type": "string"
+        },
+        "family": {
+          "type": "string"
+        },
+        "genus": {
+          "type": "string"
+        },
+        "species": {
+          "type": "string"
+        },
+        "subspecies": {
+          "type": "string"
+        },
+        "botanical_variety": {
+          "type": "string"
+        }
+      }
+    },
+    "lineage": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "parent_material": {
+          "type": "array",
+          "description": "Known parent lines, if applicable.",
+          "items": {
+            "type": "string"
+          }
+        },
+        "breeding_type": {
+          "type": "string",
+          "enum": [
+            "open_pollinated",
+            "landrace",
+            "heirloom",
+            "modern_cultivar",
+            "hybrid",
+            "wild",
+            "unknown",
+            "other"
+          ]
+        },
+        "selection_history": {
+          "type": "string",
+          "description": "Narrative description of breeding, local adaptation, or selection history."
+        },
+        "source_story": {
+          "type": "string",
+          "description": "Cultural or stewardship narrative of where this record came from."
+        }
+      }
+    },
+    "phenology": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "flowering_period": {
+          "type": "string"
+        },
+        "seed_set_period": {
+          "type": "string"
+        },
+        "harvest_period": {
+          "type": "string"
+        },
+        "leaf_out_period": {
+          "type": "string"
+        },
+        "dormancy_notes": {
+          "type": "string"
+        }
+      }
+    },
+    "propagation": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "primary_methods": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "seed",
+              "cutting",
+              "division",
+              "layering",
+              "grafting",
+              "tuber",
+              "bulb",
+              "rhizome",
+              "spore",
+              "other"
+            ]
+          },
+          "uniqueItems": true
+        },
+        "propagation_notes": {
+          "type": "string"
+        },
+        "germination_notes": {
+          "type": "string"
+        },
+        "stratification_required": {
+          "type": "boolean"
+        },
+        "scarification_required": {
+          "type": "boolean"
+        },
+        "viability_notes": {
+          "type": "string"
+        }
+      }
+    },
+    "seed_saving": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "saveable_by_home_growers": {
+          "type": "boolean",
+          "description": "Whether seed can reasonably be saved by small-scale growers."
+        },
+        "pollination_type": {
+          "type": "string",
+          "enum": [
+            "self_pollinated",
+            "cross_pollinated",
+            "mixed",
+            "wind_pollinated",
+            "insect_pollinated",
+            "unknown",
+            "other"
+          ]
+        },
+        "isolation_notes": {
+          "type": "string"
+        },
+        "population_notes": {
+          "type": "string",
+          "description": "Notes about minimum population size for healthy seed saving."
+        },
+        "processing_notes": {
+          "type": "string"
+        },
+        "storage_notes": {
+          "type": "string"
+        },
+        "seed_longevity_notes": {
+          "type": "string"
+        },
+        "crossing_risk_notes": {
+          "type": "string"
+        }
+      }
+    },
+    "growing_conditions": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "sun_exposure": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "full_sun",
+              "part_shade",
+              "shade",
+              "dappled_shade",
+              "unknown"
+            ]
+          },
+          "uniqueItems": true
+        },
+        "soil_preferences": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true
+        },
+        "moisture_preferences": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "dry",
+              "moderate",
+              "moist",
+              "wet",
+              "waterlogged_tolerant",
+              "unknown"
+            ]
+          },
+          "uniqueItems": true
+        },
+        "ph_notes": {
+          "type": "string"
+        },
+        "temperature_notes": {
+          "type": "string"
+        },
+        "frost_tolerance_notes": {
+          "type": "string"
+        },
+        "drought_tolerance_notes": {
+          "type": "string"
+        },
+        "heat_tolerance_notes": {
+          "type": "string"
+        },
+        "wind_tolerance_notes": {
+          "type": "string"
+        }
+      }
+    },
+    "ecological_relationship": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "relationship_type",
+        "description"
+      ],
+      "properties": {
+        "relationship_type": {
+          "type": "string",
+          "enum": [
+            "pollinator_support",
+            "mycorrhizal_association",
+            "nitrogen_fixation",
+            "nurse_plant",
+            "companion_planting",
+            "habitat_support",
+            "soil_building",
+            "riparian_support",
+            "erosion_control",
+            "food_web_support",
+            "shade_relationship",
+            "water_relationship",
+            "other"
+          ]
+        },
+        "related_entity": {
+          "type": "string",
+          "description": "Another species, guild, pollinator, fungal group, or ecological context."
+        },
+        "description": {
+          "type": "string"
+        },
+        "confidence": {
+          "type": "string",
+          "enum": [
+            "low",
+            "medium",
+            "high"
+          ]
+        }
+      }
+    },
+    "use_item": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "use_type",
+        "description"
+      ],
+      "properties": {
+        "use_type": {
+          "type": "string",
+          "enum": [
+            "food",
+            "medicine",
+            "pollinator_forage",
+            "fiber",
+            "fodder",
+            "fuel",
+            "craft",
+            "shelter",
+            "shade",
+            "mulch",
+            "compost_input",
+            "living_stake",
+            "basketry",
+            "education",
+            "research",
+            "other"
+          ]
+        },
+        "description": {
+          "type": "string"
+        },
+        "preparation_notes": {
+          "type": "string"
+        },
+        "cautions": {
+          "type": "string"
+        }
+      }
+    },
+    "distribution_context": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "regions_grown_or_observed": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true
+        },
+        "bioregions": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true
+        },
+        "site_types": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "garden",
+              "farm",
+              "greenhouse",
+              "orchard",
+              "food_forest",
+              "riparian_zone",
+              "wetland",
+              "field_margin",
+              "urban_site",
+              "wildland_edge",
+              "other"
+            ]
+          },
+          "uniqueItems": true
+        },
+        "notes": {
+          "type": "string"
+        }
+      }
+    },
+    "media_item": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "media_type",
+        "ref"
+      ],
+      "properties": {
+        "media_type": {
+          "type": "string",
+          "enum": [
+            "image",
+            "audio",
+            "video",
+            "scan",
+            "diagram",
+            "document",
+            "other"
+          ]
+        },
+        "ref": {
+          "type": "string",
+          "description": "File path, URL, or asset identifier."
+        },
+        "caption": {
+          "type": "string"
+        },
+        "credit": {
+          "type": "string"
+        }
+      }
+    },
+    "citation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "title"
+      ],
+      "properties": {
+        "title": {
+          "type": "string"
+        },
+        "author": {
+          "type": "string"
+        },
+        "year": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "source": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string",
+          "format": "uri"
+        },
+        "notes": {
+          "type": "string"
+        }
+      }
+    },
+    "related_record": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "record_type",
+        "ref"
+      ],
+      "properties": {
+        "record_type": {
+          "type": "string",
+          "enum": [
+            "species",
+            "seed_lot",
+            "stewardship_event",
+            "observation",
+            "document",
+            "issue",
+            "pull_request",
+            "diagram",
+            "image",
+            "farmos_record",
+            "other"
+          ]
+        },
+        "ref": {
+          "type": "string"
+        },
+        "notes": {
+          "type": "string"
+        }
+      }
+    },
+    "provenance": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "recorded_by": {
+          "type": "string"
+        },
+        "recorded_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "last_modified_by": {
+          "type": "string"
+        },
+        "last_modified_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "source_type": {
+          "type": "string",
+          "enum": [
+            "field_note",
+            "manual_entry",
+            "literature_summary",
+            "farmos_export",
+            "agent_generated",
+            "imported",
+            "other"
+          ]
+        },
+        "source_ref": {
+          "type": "string"
+        }
+      }
+    },
+    "agent_assistance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "agent_name",
+        "agent_role"
+      ],
+      "properties": {
+        "agent_name": {
+          "type": "string"
+        },
+        "agent_role": {
+          "type": "string",
+          "enum": [
+            "summarization",
+            "structuring",
+            "classification",
+            "taxonomy_alignment",
+            "linking",
+            "drafting",
+            "analysis",
+            "other"
+          ]
+        },
+        "notes": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}
