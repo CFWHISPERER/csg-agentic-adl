@@ -1,0 +1,655 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://cascadiaseedguild.org/schemas/observation.schema.json",
+  "title": "Observation",
+  "description": "A structured field, ecological, or stewardship observation related to a species, place, event, seed lot, or ecological relationship within the Cascadia Seed Guild knowledge commons.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "observation_id",
+    "observation_type",
+    "title",
+    "status",
+    "observed_on",
+    "observer"
+  ],
+  "properties": {
+    "observation_id": {
+      "type": "string",
+      "description": "A unique identifier for the observation record.",
+      "pattern": "^[a-z0-9][a-z0-9\\-_]*$"
+    },
+    "observation_type": {
+      "type": "string",
+      "description": "The primary category of what was observed.",
+      "enum": [
+        "species_presence",
+        "growth",
+        "germination",
+        "rooting",
+        "leaf_out",
+        "flowering",
+        "pollination",
+        "pollinator_activity",
+        "fruiting",
+        "seed_set",
+        "harvest_quality",
+        "survival",
+        "mortality",
+        "soil_condition",
+        "compost_condition",
+        "moisture",
+        "weather_impact",
+        "disease_pressure",
+        "pest_pressure",
+        "browsing_damage",
+        "fungal_relationship",
+        "ecological_relationship",
+        "biodiversity",
+        "habitat_condition",
+        "water_flow",
+        "phenology",
+        "other"
+      ]
+    },
+    "title": {
+      "type": "string",
+      "description": "A concise human-readable title for the observation.",
+      "minLength": 3
+    },
+    "summary": {
+      "type": "string",
+      "description": "A short summary of the observation."
+    },
+    "description": {
+      "type": "string",
+      "description": "A fuller narrative description of what was observed, including context."
+    },
+    "status": {
+      "type": "string",
+      "description": "The current review state of the observation record.",
+      "enum": [
+        "draft",
+        "active",
+        "needs_review",
+        "superseded",
+        "archived"
+      ]
+    },
+    "observed_on": {
+      "type": "string",
+      "format": "date",
+      "description": "The date on which the observation was made."
+    },
+    "observed_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Optional timestamp for more precise observations."
+    },
+    "time_of_day": {
+      "type": "string",
+      "description": "Approximate time-of-day context for the observation.",
+      "enum": [
+        "pre_dawn",
+        "morning",
+        "midday",
+        "afternoon",
+        "evening",
+        "night",
+        "unknown"
+      ]
+    },
+    "season": {
+      "type": "string",
+      "description": "Seasonal context for the observation.",
+      "enum": [
+        "winter",
+        "spring",
+        "summer",
+        "autumn",
+        "wet_season",
+        "dry_season",
+        "unknown"
+      ]
+    },
+    "observer": {
+      "$ref": "#/$defs/observer"
+    },
+    "location": {
+      "$ref": "#/$defs/location"
+    },
+    "observed_entities": {
+      "type": "array",
+      "description": "Species, varieties, seed lots, ecological partners, or other entities involved in the observation.",
+      "items": {
+        "$ref": "#/$defs/entity_reference"
+      }
+    },
+    "environmental_context": {
+      "$ref": "#/$defs/environmental_context"
+    },
+    "measurements": {
+      "type": "array",
+      "description": "Measured values associated with the observation.",
+      "items": {
+        "$ref": "#/$defs/measurement"
+      }
+    },
+    "qualitative_signals": {
+      "type": "array",
+      "description": "Non-numeric but important indicators such as vigor, smell, texture, color, or insect presence.",
+      "items": {
+        "$ref": "#/$defs/qualitative_signal"
+      }
+    },
+    "interpretations": {
+      "type": "array",
+      "description": "Carefully framed interpretations arising from the observation.",
+      "items": {
+        "$ref": "#/$defs/interpretation"
+      }
+    },
+    "uncertainties": {
+      "type": "array",
+      "description": "Known unknowns, ambiguities, or reasons for caution in interpretation.",
+      "items": {
+        "type": "string"
+      }
+    },
+    "related_records": {
+      "type": "array",
+      "description": "Links to species records, stewardship events, seed lots, farmOS entries, issues, or documents.",
+      "items": {
+        "$ref": "#/$defs/related_record"
+      }
+    },
+    "media": {
+      "type": "array",
+      "description": "Images, audio, video, scans, or diagrams associated with the observation.",
+      "items": {
+        "$ref": "#/$defs/media_item"
+      }
+    },
+    "citations": {
+      "type": "array",
+      "description": "References supporting methods, taxonomy, or interpretation.",
+      "items": {
+        "$ref": "#/$defs/citation"
+      }
+    },
+    "follow_up_actions": {
+      "type": "array",
+      "description": "Suggested next actions arising from the observation.",
+      "items": {
+        "type": "string"
+      }
+    },
+    "tags": {
+      "type": "array",
+      "description": "User-defined tags for grouping and retrieval.",
+      "items": {
+        "type": "string",
+        "pattern": "^[a-z0-9][a-z0-9\\-_]*$"
+      },
+      "uniqueItems": true
+    },
+    "provenance": {
+      "$ref": "#/$defs/provenance"
+    },
+    "agent_assistance": {
+      "type": "array",
+      "description": "AI or software agents that helped structure, summarize, classify, or link this observation.",
+      "items": {
+        "$ref": "#/$defs/agent_assistance"
+      }
+    }
+  },
+  "$defs": {
+    "observer": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "name",
+        "role"
+      ],
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Name of the person, group, or system making the observation."
+        },
+        "role": {
+          "type": "string",
+          "enum": [
+            "steward",
+            "grower",
+            "observer",
+            "researcher",
+            "educator",
+            "community_member",
+            "agent",
+            "other"
+          ]
+        },
+        "affiliation": {
+          "type": "string",
+          "description": "Organization, guild, node, or project affiliation."
+        },
+        "notes": {
+          "type": "string"
+        }
+      }
+    },
+    "location": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "location_type": {
+          "type": "string",
+          "enum": [
+            "garden",
+            "farm",
+            "greenhouse",
+            "seed_library",
+            "community_site",
+            "riparian_zone",
+            "wetland",
+            "food_forest",
+            "field_margin",
+            "watershed",
+            "bioregion",
+            "online",
+            "other"
+          ]
+        },
+        "name": {
+          "type": "string",
+          "description": "Human-readable location name."
+        },
+        "place_description": {
+          "type": "string",
+          "description": "More specific local placement such as swale 2, lower bed, stream edge, or greenhouse bench A."
+        },
+        "bioregion": {
+          "type": "string",
+          "description": "Bioregional context such as Cascadia."
+        },
+        "latitude": {
+          "type": "number",
+          "minimum": -90,
+          "maximum": 90
+        },
+        "longitude": {
+          "type": "number",
+          "minimum": -180,
+          "maximum": 180
+        },
+        "privacy_level": {
+          "type": "string",
+          "description": "Controls the precision at which this location should be shared.",
+          "enum": [
+            "public",
+            "approximate",
+            "private"
+          ],
+          "default": "approximate"
+        }
+      }
+    },
+    "entity_reference": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "label"
+      ],
+      "properties": {
+        "label": {
+          "type": "string",
+          "description": "Primary label for the observed entity."
+        },
+        "entity_type": {
+          "type": "string",
+          "enum": [
+            "species",
+            "variety",
+            "seed_lot",
+            "pollinator",
+            "fungal_group",
+            "soil_condition",
+            "habitat_feature",
+            "weather_pattern",
+            "other"
+          ]
+        },
+        "scientific_name": {
+          "type": "string"
+        },
+        "common_name": {
+          "type": "string"
+        },
+        "record_ref": {
+          "type": "string",
+          "description": "Path, URL, or internal identifier for a linked record."
+        },
+        "notes": {
+          "type": "string"
+        }
+      }
+    },
+    "environmental_context": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "weather_notes": {
+          "type": "string"
+        },
+        "temperature_c": {
+          "type": "number"
+        },
+        "soil_moisture_notes": {
+          "type": "string"
+        },
+        "light_conditions": {
+          "type": "string",
+          "enum": [
+            "full_sun",
+            "part_shade",
+            "shade",
+            "dappled_shade",
+            "cloudy",
+            "unknown",
+            "other"
+          ]
+        },
+        "wind_notes": {
+          "type": "string"
+        },
+        "recent_events": {
+          "type": "array",
+          "description": "Recent environmental or management events relevant to interpretation.",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "measurement": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "measurement_type",
+        "value"
+      ],
+      "properties": {
+        "measurement_type": {
+          "type": "string",
+          "enum": [
+            "count",
+            "height_cm",
+            "width_cm",
+            "length_cm",
+            "depth_cm",
+            "temperature_c",
+            "moisture_percent",
+            "ph",
+            "weight_g",
+            "weight_kg",
+            "seed_count",
+            "flower_count",
+            "pollinator_count",
+            "survival_rate_percent",
+            "cover_percent",
+            "other"
+          ]
+        },
+        "value": {
+          "type": "number"
+        },
+        "unit": {
+          "type": "string",
+          "description": "Optional unit when not already implied by measurement_type."
+        },
+        "method": {
+          "type": "string",
+          "description": "Method used to obtain the measurement."
+        },
+        "notes": {
+          "type": "string"
+        }
+      }
+    },
+    "qualitative_signal": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "signal_type",
+        "description"
+      ],
+      "properties": {
+        "signal_type": {
+          "type": "string",
+          "enum": [
+            "vigor",
+            "leaf_color",
+            "wilting",
+            "smell",
+            "soil_texture",
+            "soil_structure",
+            "flower_density",
+            "pollinator_presence",
+            "fungal_presence",
+            "browsing_sign",
+            "disease_sign",
+            "pest_sign",
+            "waterlogging",
+            "dryness",
+            "other"
+          ]
+        },
+        "description": {
+          "type": "string"
+        },
+        "intensity": {
+          "type": "string",
+          "enum": [
+            "low",
+            "medium",
+            "high"
+          ]
+        },
+        "confidence": {
+          "type": "string",
+          "enum": [
+            "low",
+            "medium",
+            "high"
+          ]
+        }
+      }
+    },
+    "interpretation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "statement"
+      ],
+      "properties": {
+        "statement": {
+          "type": "string",
+          "description": "A cautious interpretation arising from the observation."
+        },
+        "basis": {
+          "type": "string",
+          "description": "Why this interpretation seems plausible."
+        },
+        "confidence": {
+          "type": "string",
+          "enum": [
+            "low",
+            "medium",
+            "high"
+          ]
+        }
+      }
+    },
+    "related_record": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "record_type",
+        "ref"
+      ],
+      "properties": {
+        "record_type": {
+          "type": "string",
+          "enum": [
+            "species",
+            "seed_lot",
+            "stewardship_event",
+            "observation",
+            "document",
+            "issue",
+            "pull_request",
+            "diagram",
+            "image",
+            "farmos_record",
+            "other"
+          ]
+        },
+        "ref": {
+          "type": "string",
+          "description": "Identifier, path, URL, or cross-reference."
+        },
+        "notes": {
+          "type": "string"
+        }
+      }
+    },
+    "media_item": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "media_type",
+        "ref"
+      ],
+      "properties": {
+        "media_type": {
+          "type": "string",
+          "enum": [
+            "image",
+            "audio",
+            "video",
+            "scan",
+            "diagram",
+            "document",
+            "other"
+          ]
+        },
+        "ref": {
+          "type": "string",
+          "description": "File path, URL, or asset identifier."
+        },
+        "caption": {
+          "type": "string"
+        },
+        "credit": {
+          "type": "string"
+        }
+      }
+    },
+    "citation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "title"
+      ],
+      "properties": {
+        "title": {
+          "type": "string"
+        },
+        "author": {
+          "type": "string"
+        },
+        "year": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "source": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string",
+          "format": "uri"
+        },
+        "notes": {
+          "type": "string"
+        }
+      }
+    },
+    "provenance": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "recorded_by": {
+          "type": "string",
+          "description": "Who created the observation record."
+        },
+        "recorded_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "last_modified_by": {
+          "type": "string"
+        },
+        "last_modified_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "source_type": {
+          "type": "string",
+          "enum": [
+            "field_note",
+            "manual_entry",
+            "sensor_reading",
+            "photo_interpretation",
+            "farmos_export",
+            "agent_generated",
+            "imported",
+            "other"
+          ]
+        },
+        "source_ref": {
+          "type": "string",
+          "description": "Reference to a notebook page, file, issue, photo set, or system export."
+        }
+      }
+    },
+    "agent_assistance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "agent_name",
+        "agent_role"
+      ],
+      "properties": {
+        "agent_name": {
+          "type": "string"
+        },
+        "agent_role": {
+          "type": "string",
+          "enum": [
+            "summarization",
+            "structuring",
+            "classification",
+            "linking",
+            "drafting",
+            "analysis",
+            "other"
+          ]
+        },
+        "notes": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}
