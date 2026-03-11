@@ -1,0 +1,602 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://cascadiaseedguild.org/schemas/seed_lot.schema.json",
+  "title": "Seed Lot",
+  "description": "A structured record describing a specific saved quantity or lineage batch of seeds stewarded, observed, exchanged, or stored within the Cascadia Seed Guild knowledge commons.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "seed_lot_id",
+    "lot_name",
+    "status",
+    "lot_type",
+    "species",
+    "source",
+    "quantity"
+  ],
+  "properties": {
+    "seed_lot_id": {
+      "type": "string",
+      "description": "A unique identifier for the seed lot.",
+      "pattern": "^[a-z0-9][a-z0-9\\-_]*$"
+    },
+    "lot_name": {
+      "type": "string",
+      "description": "A concise human-readable name for the seed lot."
+    },
+    "status": {
+      "type": "string",
+      "description": "Current stewardship or availability status of the lot.",
+      "enum": [
+        "active",
+        "in_storage",
+        "distributed",
+        "depleted",
+        "archived",
+        "needs_review",
+        "quarantined"
+      ]
+    },
+    "lot_type": {
+      "type": "string",
+      "description": "The general type of seed lot being recorded.",
+      "enum": [
+        "saved_seed",
+        "purchased_seed",
+        "donated_seed",
+        "exchanged_seed",
+        "breeding_population",
+        "trial_lot",
+        "backup_lot",
+        "emergency_reserve",
+        "educational_lot",
+        "other"
+      ]
+    },
+    "lot_name_alt": {
+      "type": "array",
+      "description": "Alternative names or labels used for the lot.",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "species": {
+      "$ref": "#/$defs/species_reference"
+    },
+    "variety_name": {
+      "type": "string",
+      "description": "Variety, cultivar, landrace, or local name if applicable."
+    },
+    "lineage_notes": {
+      "type": "string",
+      "description": "Narrative notes about lineage, adaptation, source story, or selection history."
+    },
+    "source": {
+      "$ref": "#/$defs/source"
+    },
+    "collection_or_save": {
+      "$ref": "#/$defs/collection_or_save"
+    },
+    "quantity": {
+      "$ref": "#/$defs/quantity"
+    },
+    "storage": {
+      "$ref": "#/$defs/storage"
+    },
+    "viability": {
+      "$ref": "#/$defs/viability"
+    },
+    "distribution": {
+      "$ref": "#/$defs/distribution"
+    },
+    "traits_of_interest": {
+      "type": "array",
+      "description": "Traits or qualities considered important in this lot.",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "stewardship_relevance": {
+      "type": "array",
+      "description": "Why this lot matters to the guild or to a local node.",
+      "items": {
+        "type": "string",
+        "enum": [
+          "food_security",
+          "seed_saving",
+          "local_adaptation",
+          "pollinator_support",
+          "soil_building",
+          "climate_resilience",
+          "emergency_propagation",
+          "educational_value",
+          "rare_lineage",
+          "cultural_significance",
+          "research",
+          "backup_security",
+          "other"
+        ]
+      },
+      "uniqueItems": true
+    },
+    "risks_and_cautions": {
+      "type": "array",
+      "description": "Known cautions or concerns relating to this lot.",
+      "items": {
+        "type": "string"
+      }
+    },
+    "related_observations": {
+      "type": "array",
+      "description": "Linked observations relevant to this lot.",
+      "items": {
+        "$ref": "#/$defs/related_record"
+      }
+    },
+    "related_events": {
+      "type": "array",
+      "description": "Linked stewardship events relevant to this lot.",
+      "items": {
+        "$ref": "#/$defs/related_record"
+      }
+    },
+    "related_records": {
+      "type": "array",
+      "description": "Other linked records such as species, farmOS entries, documents, issues, or diagrams.",
+      "items": {
+        "$ref": "#/$defs/related_record"
+      }
+    },
+    "media": {
+      "type": "array",
+      "description": "Images, scans, documents, or other media tied to the lot.",
+      "items": {
+        "$ref": "#/$defs/media_item"
+      }
+    },
+    "citations": {
+      "type": "array",
+      "description": "References supporting seed-saving methods, lineage, or interpretation.",
+      "items": {
+        "$ref": "#/$defs/citation"
+      }
+    },
+    "tags": {
+      "type": "array",
+      "description": "User-defined tags for grouping and retrieval.",
+      "items": {
+        "type": "string",
+        "pattern": "^[a-z0-9][a-z0-9\\-_]*$"
+      },
+      "uniqueItems": true
+    },
+    "provenance": {
+      "$ref": "#/$defs/provenance"
+    },
+    "agent_assistance": {
+      "type": "array",
+      "description": "AI or software agents that helped structure, summarize, classify, or link this lot record.",
+      "items": {
+        "$ref": "#/$defs/agent_assistance"
+      }
+    }
+  },
+  "$defs": {
+    "species_reference": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "label"
+      ],
+      "properties": {
+        "label": {
+          "type": "string",
+          "description": "Primary label for the species or biological entity."
+        },
+        "scientific_name": {
+          "type": "string"
+        },
+        "common_name": {
+          "type": "string"
+        },
+        "record_ref": {
+          "type": "string",
+          "description": "Path, URL, or internal identifier for a linked species record."
+        }
+      }
+    },
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "source_type"
+      ],
+      "properties": {
+        "source_type": {
+          "type": "string",
+          "enum": [
+            "self_saved",
+            "donation",
+            "exchange",
+            "purchase",
+            "wild_collection",
+            "community_seed_library",
+            "farmOS_import",
+            "unknown",
+            "other"
+          ]
+        },
+        "source_name": {
+          "type": "string",
+          "description": "Person, organization, exchange, nursery, or location from which the lot came."
+        },
+        "source_contact": {
+          "type": "string",
+          "description": "Optional contact or affiliation note."
+        },
+        "source_location": {
+          "type": "string",
+          "description": "Geographic or place-based source context."
+        },
+        "source_year": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Year acquired or received, if known."
+        },
+        "source_notes": {
+          "type": "string"
+        }
+      }
+    },
+    "collection_or_save": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "saved_by": {
+          "type": "array",
+          "description": "People, groups, or stewards who saved or collected the lot.",
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true
+        },
+        "save_year": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "save_date": {
+          "type": "string",
+          "format": "date"
+        },
+        "save_location": {
+          "type": "string",
+          "description": "Place where the seed was saved or collected."
+        },
+        "harvest_notes": {
+          "type": "string",
+          "description": "Notes about how the seed was harvested, selected, dried, or processed."
+        },
+        "population_context": {
+          "type": "string",
+          "description": "Notes about population size, isolation, crossing risk, or field context."
+        }
+      }
+    },
+    "quantity": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "amount",
+        "unit"
+      ],
+      "properties": {
+        "amount": {
+          "type": "number",
+          "minimum": 0
+        },
+        "unit": {
+          "type": "string",
+          "enum": [
+            "seeds",
+            "grams",
+            "kilograms",
+            "ounces",
+            "pounds",
+            "packets",
+            "jars",
+            "envelopes",
+            "lots",
+            "other"
+          ]
+        },
+        "estimated": {
+          "type": "boolean",
+          "description": "Whether the quantity is estimated rather than counted or weighed."
+        },
+        "notes": {
+          "type": "string"
+        }
+      }
+    },
+    "storage": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "storage_location": {
+          "type": "string",
+          "description": "Physical or organizational location of the lot."
+        },
+        "container_type": {
+          "type": "string",
+          "enum": [
+            "paper_packet",
+            "glass_jar",
+            "plastic_container",
+            "metal_box",
+            "ammo_case",
+            "seed_tin",
+            "freezer_storage",
+            "cool_storage",
+            "room_temperature",
+            "other"
+          ]
+        },
+        "temperature_notes": {
+          "type": "string"
+        },
+        "humidity_notes": {
+          "type": "string"
+        },
+        "light_exposure_notes": {
+          "type": "string"
+        },
+        "storage_start_date": {
+          "type": "string",
+          "format": "date"
+        },
+        "storage_notes": {
+          "type": "string"
+        },
+        "redundancy_level": {
+          "type": "string",
+          "description": "Whether backups or distributed copies exist.",
+          "enum": [
+            "single_copy",
+            "duplicate_copy",
+            "multiple_copies",
+            "distributed_across_nodes",
+            "unknown"
+          ]
+        }
+      }
+    },
+    "viability": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "viability_status": {
+          "type": "string",
+          "enum": [
+            "unknown",
+            "untested",
+            "likely_viable",
+            "declining",
+            "low_viability",
+            "non_viable"
+          ]
+        },
+        "last_test_date": {
+          "type": "string",
+          "format": "date"
+        },
+        "test_method": {
+          "type": "string"
+        },
+        "germination_rate_percent": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 100
+        },
+        "viability_notes": {
+          "type": "string"
+        },
+        "recommended_retest_by": {
+          "type": "string",
+          "format": "date"
+        }
+      }
+    },
+    "distribution": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "is_shareable": {
+          "type": "boolean",
+          "description": "Whether the lot is currently intended for sharing or exchange."
+        },
+        "distribution_scope": {
+          "type": "string",
+          "enum": [
+            "personal_use",
+            "local_exchange",
+            "guild_distribution",
+            "educational_distribution",
+            "emergency_reserve_only",
+            "restricted",
+            "unknown"
+          ]
+        },
+        "distribution_notes": {
+          "type": "string"
+        },
+        "last_distributed_on": {
+          "type": "string",
+          "format": "date"
+        },
+        "distribution_history_summary": {
+          "type": "string"
+        }
+      }
+    },
+    "related_record": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "record_type",
+        "ref"
+      ],
+      "properties": {
+        "record_type": {
+          "type": "string",
+          "enum": [
+            "species",
+            "seed_lot",
+            "observation",
+            "stewardship_event",
+            "document",
+            "issue",
+            "pull_request",
+            "image",
+            "diagram",
+            "farmos_record",
+            "other"
+          ]
+        },
+        "ref": {
+          "type": "string",
+          "description": "Identifier, path, URL, or cross-reference."
+        },
+        "notes": {
+          "type": "string"
+        }
+      }
+    },
+    "media_item": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "media_type",
+        "ref"
+      ],
+      "properties": {
+        "media_type": {
+          "type": "string",
+          "enum": [
+            "image",
+            "scan",
+            "document",
+            "diagram",
+            "audio",
+            "video",
+            "other"
+          ]
+        },
+        "ref": {
+          "type": "string",
+          "description": "File path, URL, or asset identifier."
+        },
+        "caption": {
+          "type": "string"
+        },
+        "credit": {
+          "type": "string"
+        }
+      }
+    },
+    "citation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "title"
+      ],
+      "properties": {
+        "title": {
+          "type": "string"
+        },
+        "author": {
+          "type": "string"
+        },
+        "year": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "source": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string",
+          "format": "uri"
+        },
+        "notes": {
+          "type": "string"
+        }
+      }
+    },
+    "provenance": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "recorded_by": {
+          "type": "string"
+        },
+        "recorded_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "last_modified_by": {
+          "type": "string"
+        },
+        "last_modified_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "source_type": {
+          "type": "string",
+          "enum": [
+            "manual_entry",
+            "field_note",
+            "inventory_log",
+            "farmos_export",
+            "agent_generated",
+            "imported",
+            "other"
+          ]
+        },
+        "source_ref": {
+          "type": "string"
+        }
+      }
+    },
+    "agent_assistance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "agent_name",
+        "agent_role"
+      ],
+      "properties": {
+        "agent_name": {
+          "type": "string"
+        },
+        "agent_role": {
+          "type": "string",
+          "enum": [
+            "summarization",
+            "structuring",
+            "classification",
+            "linking",
+            "inventory_alignment",
+            "drafting",
+            "analysis",
+            "other"
+          ]
+        },
+        "notes": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}
