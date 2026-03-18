@@ -1,5 +1,7 @@
 # Watershed Stewardship: From Ownership to Ecological Responsibility
 
+![Watershed Stewardship Diagram](../diagrams/watershed-stewardship.png)
+
 ## Overview
 
 Modern land systems are primarily organized around **ownership and parcel boundaries**.
