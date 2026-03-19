@@ -1,0 +1,319 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/CFWHISPERER/csg-agentic-adl/blob/main/schemas/stewardship_unit.schema.json",
+  "title": "Stewardship Unit",
+  "description": "Defines a stewardship unit as a place-based ecological node within a watershed, where seed saving, soil building, observation, restoration, and food-growing activity occur.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "unit_id",
+    "name",
+    "watershed_id",
+    "location",
+    "land_tenure_type"
+  ],
+  "properties": {
+    "unit_id": {
+      "type": "string",
+      "description": "Unique identifier for the stewardship unit.",
+      "pattern": "^[a-zA-Z0-9._:-]+$"
+    },
+    "name": {
+      "type": "string",
+      "description": "Human-readable name for the stewardship unit.",
+      "minLength": 1
+    },
+    "description": {
+      "type": "string",
+      "description": "Narrative description of the stewardship unit and its role."
+    },
+    "watershed_id": {
+      "type": "string",
+      "description": "Reference to the watershed in which this stewardship unit exists.",
+      "pattern": "^[a-zA-Z0-9._:-]+$"
+    },
+    "bioregion_id": {
+      "type": "string",
+      "description": "Reference to a related bioregion record, if applicable.",
+      "pattern": "^[a-zA-Z0-9._:-]+$"
+    },
+    "location": {
+      "type": "object",
+      "description": "Approximate geographic location of the stewardship unit.",
+      "additionalProperties": false,
+      "required": [
+        "lat",
+        "lon"
+      ],
+      "properties": {
+        "lat": {
+          "type": "number",
+          "minimum": -90,
+          "maximum": 90
+        },
+        "lon": {
+          "type": "number",
+          "minimum": -180,
+          "maximum": 180
+        }
+      }
+    },
+    "elevation_m": {
+      "type": "number",
+      "description": "Approximate elevation of the site in meters."
+    },
+    "area_acres": {
+      "type": "number",
+      "description": "Approximate size of the stewardship unit in acres.",
+      "minimum": 0
+    },
+    "land_tenure_type": {
+      "type": "string",
+      "description": "The tenure or access relationship under which the site is stewarded.",
+      "enum": [
+        "owned",
+        "leased",
+        "commons",
+        "tribal",
+        "community_managed",
+        "institutional",
+        "informal",
+        "unknown"
+      ]
+    },
+    "land_use_types": {
+      "type": "array",
+      "description": "Primary land use or ecological use categories associated with the stewardship unit.",
+      "items": {
+        "type": "string",
+        "enum": [
+          "market_garden_legacy",
+          "permaculture_development",
+          "seed_production",
+          "animal_integration",
+          "research_site",
+          "food_forest",
+          "riparian_restoration",
+          "wetland_restoration",
+          "pollinator_habitat",
+          "orchard",
+          "annual_cropping",
+          "education_site",
+          "wildland_interface",
+          "unknown"
+        ]
+      },
+      "uniqueItems": true
+    },
+    "infrastructure": {
+      "type": "array",
+      "description": "Important built structures or infrastructural features present at the site.",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "uniqueItems": true
+    },
+    "soil_characteristics": {
+      "type": "object",
+      "description": "Summary of known soil features and current soil conditions.",
+      "additionalProperties": false,
+      "properties": {
+        "dominant_types": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        },
+        "current_conditions": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        },
+        "notes": {
+          "type": "string"
+        }
+      }
+    },
+    "water_features": {
+      "type": "array",
+      "description": "Hydrological or water-related features associated with the site.",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "uniqueItems": true
+    },
+    "climate_context": {
+      "type": "object",
+      "description": "Climate patterns and notes relevant to stewardship at the site.",
+      "additionalProperties": false,
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "mediterranean",
+            "temperate_maritime",
+            "continental",
+            "semi_arid",
+            "alpine",
+            "unknown"
+          ]
+        },
+        "patterns": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "notes": {
+          "type": "string"
+        }
+      }
+    },
+    "steward_roles": {
+      "type": "array",
+      "description": "Roles actively performed at this stewardship unit.",
+      "items": {
+        "type": "string",
+        "enum": [
+          "seed_saver",
+          "soil_builder",
+          "water_steward",
+          "observer",
+          "educator",
+          "restoration_practitioner",
+          "pollinator_steward",
+          "community_host",
+          "researcher",
+          "unknown"
+        ]
+      },
+      "uniqueItems": true
+    },
+    "current_projects": {
+      "type": "array",
+      "description": "Ongoing projects associated with the site.",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "uniqueItems": true
+    },
+    "animal_systems": {
+      "type": "array",
+      "description": "Animal systems integrated into the stewardship unit.",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "uniqueItems": true
+    },
+    "seed_focus": {
+      "type": "object",
+      "description": "Summary of seed-related priorities and scale for this unit.",
+      "additionalProperties": false,
+      "properties": {
+        "estimated_varieties": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "focus_areas": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        },
+        "notes": {
+          "type": "string"
+        }
+      }
+    },
+    "ecological_goals": {
+      "type": "array",
+      "description": "Primary ecological goals for the stewardship unit.",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "uniqueItems": true
+    },
+    "stewardship_risks": {
+      "type": "array",
+      "description": "Known risks, constraints, or vulnerabilities affecting stewardship at this site.",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "uniqueItems": true
+    },
+    "related_watershed_features": {
+      "type": "array",
+      "description": "Notable watershed-scale dynamics or features relevant to the site.",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "uniqueItems": true
+    },
+    "linked_seed_lot_ids": {
+      "type": "array",
+      "description": "References to seed lots actively stewarded or trialed at this unit.",
+      "items": {
+        "type": "string",
+        "pattern": "^[a-zA-Z0-9._:-]+$"
+      },
+      "uniqueItems": true
+    },
+    "linked_observation_ids": {
+      "type": "array",
+      "description": "References to observations associated with this stewardship unit.",
+      "items": {
+        "type": "string",
+        "pattern": "^[a-zA-Z0-9._:-]+$"
+      },
+      "uniqueItems": true
+    },
+    "metadata": {
+      "type": "object",
+      "description": "Optional metadata for provenance, authorship, and versioning.",
+      "additionalProperties": false,
+      "properties": {
+        "status": {
+          "type": "string",
+          "enum": [
+            "draft",
+            "review",
+            "active",
+            "archived"
+          ]
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "updated_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "created_by": {
+          "type": "string"
+        },
+        "updated_by": {
+          "type": "string"
+        },
+        "notes": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}
