@@ -1,0 +1,347 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/CFWHISPERER/csg-agentic-adl/blob/main/schemas/planting_event.schema.json",
+  "title": "Planting Event",
+  "description": "Defines a planting event as a time-bound stewardship action in which one or more species or seed lots are planted within a stewardship unit and watershed context.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "planting_id",
+    "name",
+    "date_planted",
+    "watershed_id",
+    "stewardship_unit_id",
+    "planting_method"
+  ],
+  "properties": {
+    "planting_id": {
+      "type": "string",
+      "description": "Unique identifier for the planting event.",
+      "pattern": "^[a-zA-Z0-9._:-]+$"
+    },
+    "name": {
+      "type": "string",
+      "description": "Human-readable name for the planting event.",
+      "minLength": 1
+    },
+    "description": {
+      "type": "string",
+      "description": "Narrative description of the planting event and its purpose."
+    },
+    "date_planted": {
+      "type": "string",
+      "format": "date",
+      "description": "Calendar date on which the planting occurred."
+    },
+    "season": {
+      "type": "string",
+      "description": "Season associated with the planting event.",
+      "enum": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter",
+        "dry_season",
+        "wet_season",
+        "unknown"
+      ]
+    },
+    "watershed_id": {
+      "type": "string",
+      "description": "Reference to the watershed in which this planting occurred.",
+      "pattern": "^[a-zA-Z0-9._:-]+$"
+    },
+    "stewardship_unit_id": {
+      "type": "string",
+      "description": "Reference to the stewardship unit where the planting occurred.",
+      "pattern": "^[a-zA-Z0-9._:-]+$"
+    },
+    "location_within_site": {
+      "type": "string",
+      "description": "More specific location descriptor within the stewardship unit."
+    },
+    "planting_method": {
+      "type": "string",
+      "description": "Primary method used for planting.",
+      "enum": [
+        "direct_sow",
+        "transplant",
+        "broadcast",
+        "dibble",
+        "plug_planting",
+        "bare_root",
+        "cutting",
+        "rhizome_division",
+        "tuber",
+        "mixed",
+        "unknown"
+      ]
+    },
+    "planting_design": {
+      "type": "object",
+      "description": "Pattern, structure, or design logic of the planting.",
+      "additionalProperties": false,
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "monoculture",
+            "row_crop",
+            "polyculture",
+            "guild",
+            "food_forest",
+            "cover_crop",
+            "hedgerow",
+            "riparian_buffer",
+            "trial_plot",
+            "mixed",
+            "unknown"
+          ]
+        },
+        "pattern": {
+          "type": "string",
+          "description": "Named pattern or arrangement used in the planting."
+        },
+        "notes": {
+          "type": "string",
+          "description": "Additional notes on design intent or structure."
+        }
+      }
+    },
+    "species_planted": {
+      "type": "array",
+      "description": "Species and seed lots included in the planting event.",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "species",
+          "common_name",
+          "role"
+        ],
+        "properties": {
+          "species": {
+            "type": "string",
+            "description": "Scientific name of the planted species."
+          },
+          "common_name": {
+            "type": "string",
+            "description": "Common name of the planted species."
+          },
+          "role": {
+            "type": "string",
+            "description": "Ecological or design role of the planted species.",
+            "enum": [
+              "structure",
+              "nitrogen_fixer",
+              "ground_cover",
+              "pollinator_support",
+              "biomass",
+              "soil_builder",
+              "food_crop",
+              "trap_crop",
+              "windbreak",
+              "shade",
+              "pioneer",
+              "unknown"
+            ]
+          },
+          "seed_lot_id": {
+            "type": "string",
+            "description": "Optional reference to the seed lot used.",
+            "pattern": "^[a-zA-Z0-9._:-]+$"
+          },
+          "quantity": {
+            "type": "number",
+            "description": "Optional quantity planted.",
+            "minimum": 0
+          },
+          "quantity_unit": {
+            "type": "string",
+            "description": "Unit associated with quantity, such as seeds, grams, trays, or plants."
+          },
+          "notes": {
+            "type": "string",
+            "description": "Additional notes for this species entry."
+          }
+        }
+      }
+    },
+    "companion_species": {
+      "type": "array",
+      "description": "Additional companion species or volunteers associated with the planting design.",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "common_name",
+          "role"
+        ],
+        "properties": {
+          "common_name": {
+            "type": "string"
+          },
+          "role": {
+            "type": "string",
+            "description": "Function or role of the companion species."
+          },
+          "notes": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "soil_preparation": {
+      "type": "object",
+      "description": "Site preparation and fertility context for the planting.",
+      "additionalProperties": false,
+      "properties": {
+        "method": {
+          "type": "string",
+          "description": "Primary soil or bed preparation method used."
+        },
+        "inputs": {
+          "type": "array",
+          "description": "Organic matter, minerals, inoculants, or other materials added.",
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true
+        },
+        "notes": {
+          "type": "string"
+        }
+      }
+    },
+    "water_conditions": {
+      "type": "object",
+      "description": "Water-related context at the time of planting.",
+      "additionalProperties": false,
+      "properties": {
+        "initial_soil_moisture": {
+          "type": "string",
+          "enum": [
+            "dry",
+            "low",
+            "moderate",
+            "high",
+            "saturated",
+            "unknown"
+          ]
+        },
+        "irrigation_used": {
+          "type": "boolean"
+        },
+        "irrigation_method": {
+          "type": "string"
+        },
+        "notes": {
+          "type": "string"
+        }
+      }
+    },
+    "weather_conditions": {
+      "type": "object",
+      "description": "Observed weather conditions at or near the time of planting.",
+      "additionalProperties": false,
+      "properties": {
+        "temperature_range_c": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "min": {
+              "type": "number"
+            },
+            "max": {
+              "type": "number"
+            }
+          }
+        },
+        "conditions": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "notes": {
+          "type": "string"
+        }
+      }
+    },
+    "intended_outcomes": {
+      "type": "array",
+      "description": "Goals or expected functions of the planting event.",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "uniqueItems": true
+    },
+    "risks_identified": {
+      "type": "array",
+      "description": "Known or anticipated risks affecting the planting.",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "uniqueItems": true
+    },
+    "linked_observation_ids": {
+      "type": "array",
+      "description": "References to observations associated with this planting event.",
+      "items": {
+        "type": "string",
+        "pattern": "^[a-zA-Z0-9._:-]+$"
+      },
+      "uniqueItems": true
+    },
+    "linked_outcome_ids": {
+      "type": "array",
+      "description": "References to outcomes associated with this planting event.",
+      "items": {
+        "type": "string",
+        "pattern": "^[a-zA-Z0-9._:-]+$"
+      },
+      "uniqueItems": true
+    },
+    "notes": {
+      "type": "string",
+      "description": "Additional narrative notes about the planting event."
+    },
+    "metadata": {
+      "type": "object",
+      "description": "Optional metadata for provenance, authorship, and versioning.",
+      "additionalProperties": false,
+      "properties": {
+        "status": {
+          "type": "string",
+          "enum": [
+            "draft",
+            "review",
+            "active",
+            "completed",
+            "archived"
+          ]
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "updated_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "created_by": {
+          "type": "string"
+        },
+        "updated_by": {
+          "type": "string"
+        },
+        "notes": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}
