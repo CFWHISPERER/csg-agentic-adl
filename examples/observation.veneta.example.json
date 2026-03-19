@@ -142,14 +142,15 @@
       "notes": "Watershed context for the observation."
     },
     {
-      "record_type": "other",
-      "ref": "stewardship_unit.veneta_40_acre",
-      "notes": "Stewardship unit context."
-    },
-    {
-      "record_type": "other",
-      "ref": "planting_event.veneta_3sisters_2026_spring",
-      "notes": "Planting event being observed."
+  "record_type": "document",
+  "ref": "stewardship_unit.veneta_40_acre",
+  "notes": "Stewardship unit context."
+},
+{
+  "record_type": "document",
+  "ref": "planting_event.veneta_3sisters_2026_spring",
+  "notes": "Planting event being observed."
+}"notes": "Planting event being observed."
     }
   ],
   "media": [],
