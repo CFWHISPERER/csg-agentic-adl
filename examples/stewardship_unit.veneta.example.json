@@ -1,0 +1,119 @@
+{
+  "unit_id": "stewardship_unit.veneta_40_acre",
+  "name": "Veneta Research & Seed Stewardship Site",
+  "description": "A 40-acre mixed-use permaculture and seed stewardship site near Veneta, Oregon. The site includes greenhouses, open fields, animal systems, and developing soil regeneration zones. It serves as a living node within the Cascadia Seed Guild for observation, seed adaptation, and ecological restoration.",
+  "watershed_id": "watershed.long_tom",
+  "bioregion_id": "bioregion.cascadia",
+  "location": {
+    "lat": 44.05,
+    "lon": -123.35
+  },
+  "elevation_m": 130,
+  "area_acres": 40,
+  "land_tenure_type": "leased",
+  "land_use_types": [
+    "market_garden_legacy",
+    "permaculture_development",
+    "seed_production",
+    "animal_integration",
+    "research_site"
+  ],
+  "infrastructure": [
+    "two_large_greenhouses",
+    "two_small_greenhouses",
+    "20ft_refrigerated_container",
+    "40ft_refrigerated_container",
+    "water_access_stream",
+    "fencing_partial"
+  ],
+  "soil_characteristics": {
+    "dominant_types": [
+      "clay",
+      "silty_clay",
+      "compacted_agricultural_soil"
+    ],
+    "current_conditions": [
+      "organic_matter_building",
+      "manure_integration",
+      "woodchip_mulching",
+      "early_stage_regeneration"
+    ],
+    "notes": "Soils reflect legacy market gardening practices. Active efforts underway to rebuild soil structure and microbial life using compost, manure, and hugelkultur systems."
+  },
+  "water_features": [
+    "seasonal_wet_areas",
+    "creek_wetland_zone",
+    "surface_runoff_patterns"
+  ],
+  "climate_context": {
+    "type": "mediterranean",
+    "patterns": [
+      "wet_winters",
+      "dry_summers",
+      "increasing_summer_drought"
+    ],
+    "notes": "Seasonal extremes increasingly pronounced, influencing planting timing and seed selection."
+  },
+  "steward_roles": [
+    "seed_saver",
+    "soil_builder",
+    "water_steward",
+    "observer",
+    "educator"
+  ],
+  "current_projects": [
+    "fabaceae_food_forest_trials",
+    "hugelkultur_bed_establishment",
+    "quorum_sensing_planting_trials",
+    "willow_wetland_restoration",
+    "pollinator_support_expansion"
+  ],
+  "animal_systems": [
+    "alpaca",
+    "goats",
+    "chickens",
+    "ducks",
+    "geese",
+    "quail",
+    "emu",
+    "cats"
+  ],
+  "seed_focus": {
+    "estimated_varieties": 2000,
+    "focus_areas": [
+      "legumes_fabaceae",
+      "open_pollinated_varieties",
+      "pollinator_support_species",
+      "soil_building_plants"
+    ],
+    "notes": "Part of a larger private seed collection integrated into the Cascadia Seed Guild and Perma-Ledger system."
+  },
+  "ecological_goals": [
+    "increase_soil_organic_matter",
+    "improve_water_retention",
+    "expand_biodiversity",
+    "develop_local_seed_adaptation",
+    "create_resilient_food_systems"
+  ],
+  "stewardship_risks": [
+    "soil_compaction",
+    "summer_drought",
+    "nutrient_imbalance",
+    "infrastructure_limitations",
+    "land_tenure_uncertainty"
+  ],
+  "related_watershed_features": [
+    "long_tom_runoff_patterns",
+    "valley_floor_hydrology",
+    "agricultural_impact_zone"
+  ],
+  "linked_seed_lot_ids": [],
+  "linked_observation_ids": [],
+  "metadata": {
+    "status": "active",
+    "created_at": "2026-03-18T12:30:00Z",
+    "updated_at": "2026-03-18T12:30:00Z",
+    "created_by": "cfwhisperer",
+    "notes": "Initial stewardship unit example representing the Veneta 40-acre site."
+  }
+}
