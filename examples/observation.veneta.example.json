@@ -1,112 +1,183 @@
 {
-  "observation_id": "observation.veneta_3sisters_2026_early_growth_01",
+  "observation_id": "observation-veneta-3sisters-2026-early-growth-01",
+  "observation_type": "growth",
   "title": "Early growth observation for 3 Sisters Plus planting",
-  "description": "Initial field observation of germination, soil moisture, companion emergence, and early pest pressure in the Spring 2026 3 Sisters Plus trial at the Veneta stewardship site.",
-  "date_observed": "2026-04-29",
-  "observation_type": "field_observation",
-  "watershed_id": "watershed.long_tom",
-  "stewardship_unit_id": "stewardship_unit.veneta_40_acre",
-  "related_planting_id": "planting_event.veneta_3sisters_2026_spring",
-  "location_within_site": "south_hugelkultur_bed_1",
+  "summary": "Initial observation of uneven corn emergence, companion plant presence, good moisture retention, and moderate slug pressure in the Spring 2026 3 Sisters Plus trial.",
+  "description": "Initial field observation of germination, soil moisture behavior, companion emergence, and early pest pressure in the Spring 2026 3 Sisters Plus planting at the Veneta stewardship site. The hugelkultur bed appears to be retaining moisture well despite short dry intervals between rains.",
+  "status": "active",
+  "observed_on": "2026-04-29",
+  "time_of_day": "morning",
   "season": "spring",
   "observer": {
     "name": "cfwhisperer",
-    "role": "steward"
+    "role": "steward",
+    "affiliation": "Cascadia Seed Guild"
   },
-  "conditions": {
-    "soil_moisture": "moderate",
-    "surface_condition": "mulched",
-    "recent_weather": [
-      "intermittent rain",
-      "mild temperatures",
-      "cool nights"
-    ],
-    "notes": "Hugelkultur bed appears to be retaining moisture well despite several dry intervals between rains."
+  "location": {
+    "location_type": "garden",
+    "name": "Veneta Research & Seed Stewardship Site",
+    "place_description": "south_hugelkultur_bed_1",
+    "bioregion": "Cascadia",
+    "latitude": 44.05,
+    "longitude": -123.35,
+    "privacy_level": "approximate"
   },
-  "species_observed": [
+  "observed_entities": [
     {
-      "species": "Zea mays",
+      "label": "Spring 2026 3 Sisters Plus planting",
+      "entity_type": "other",
+      "record_ref": "planting_event.veneta_3sisters_2026_spring",
+      "notes": "Primary planting context for this observation."
+    },
+    {
+      "label": "Zea mays",
+      "entity_type": "species",
+      "scientific_name": "Zea mays",
       "common_name": "Corn",
-      "stage": "emerging",
-      "status": "partial_germination",
-      "notes": "Several corn seedlings visible, though emergence is uneven across the bed."
+      "record_ref": "seed_lot.corn_local_2025",
+      "notes": "Emerging unevenly across the bed."
     },
     {
-      "species": "Phaseolus vulgaris",
+      "label": "Phaseolus vulgaris",
+      "entity_type": "species",
+      "scientific_name": "Phaseolus vulgaris",
       "common_name": "Bean",
-      "stage": "not_yet_emerged",
-      "status": "pending",
-      "notes": "No visible bean emergence yet."
+      "record_ref": "seed_lot.anasazi_bean_2025",
+      "notes": "No visible emergence yet."
     },
     {
-      "species": "Cucurbita spp.",
+      "label": "Cucurbita spp.",
+      "entity_type": "species",
+      "scientific_name": "Cucurbita spp.",
       "common_name": "Squash",
-      "stage": "not_yet_emerged",
-      "status": "pending",
-      "notes": "No visible squash emergence yet."
+      "record_ref": "seed_lot.squash_mix_2025",
+      "notes": "No visible emergence yet."
     },
     {
-      "species": "Trifolium spp.",
+      "label": "Trifolium spp.",
+      "entity_type": "species",
+      "scientific_name": "Trifolium spp.",
       "common_name": "Clover",
-      "stage": "emerging",
-      "status": "present",
-      "notes": "Light clover emergence visible in patches."
+      "notes": "Light emergence visible in patches."
     },
     {
-      "species": "Brassica spp.",
+      "label": "Brassica spp.",
+      "entity_type": "species",
+      "scientific_name": "Brassica spp.",
       "common_name": "Mustard",
-      "stage": "seedling",
-      "status": "present",
-      "notes": "Volunteer or companion mustard seedlings present at bed margins."
-    }
-  ],
-  "biotic_interactions": [
-    {
-      "type": "pest_pressure",
-      "agent": "slugs",
-      "severity": "moderate",
-      "notes": "Slug activity evident on several emerging seedlings."
+      "notes": "Volunteer or companion seedlings present at margins."
     },
     {
-      "type": "pollinator_presence",
-      "agent": "native bees",
-      "severity": "low",
-      "notes": "A few native bees observed nearby, though flowering is still limited."
+      "label": "Slugs",
+      "entity_type": "other",
+      "common_name": "Slugs",
+      "notes": "Visible feeding pressure on some emerging seedlings."
     }
   ],
-  "soil_and_ecology_notes": "Surface mulch is moderating moisture loss. Soil structure appears to be loosening compared with earlier preparation stages. Early fungal activity is suspected beneath woody hugelkultur layers, though not directly measured.",
-  "unexpected_findings": [
-    "Mustard emergence may be contributing unplanned crucifer presence in the polyculture.",
-    "Corn emergence is patchier than expected, possibly reflecting micro-variation in moisture or seed depth."
-  ],
-  "preliminary_assessment": {
-    "overall_status": "promising_but_uneven",
-    "key_signals": [
-      "good moisture retention",
-      "uneven corn germination",
-      "early slug pressure",
-      "companion emergence underway"
-    ],
-    "recommended_next_actions": [
-      "continue monitoring bean and squash emergence",
-      "observe slug pressure closely",
-      "record soil moisture changes after next dry interval"
+  "environmental_context": {
+    "weather_notes": "Intermittent rain, mild temperatures, and cool nights typical of spring in the Long Tom watershed.",
+    "soil_moisture_notes": "Moderate moisture with good retention in the hugelkultur bed.",
+    "light_conditions": "full_sun",
+    "recent_events": [
+      "intermittent spring rain",
+      "short dry intervals",
+      "recent bed preparation with mulch and organic matter"
     ]
   },
-  "media_links": [],
-  "linked_outcome_ids": [],
-  "tags": [
-    "3_sisters",
-    "hugelkultur",
-    "early_growth",
-    "slug_pressure",
-    "long_tom"
+  "measurements": [
+    {
+      "measurement_type": "count",
+      "value": 7,
+      "unit": "visible corn seedlings",
+      "method": "field count",
+      "notes": "Rough count from visible emerged corn plants in the observed section."
+    }
   ],
-  "metadata": {
-    "status": "active",
-    "created_at": "2026-03-18T13:30:00Z",
-    "updated_at": "2026-03-18T13:30:00Z",
-    "created_by": "cfwhisperer",
-    "notes": "Initial observation example for the Veneta 3 Sisters Plus planting."
-  }
+  "qualitative_signals": [
+    {
+      "signal_type": "soil_structure",
+      "description": "Surface mulch and underlying bed structure appear to be moderating moisture loss and improving bed texture.",
+      "intensity": "medium",
+      "confidence": "medium"
+    },
+    {
+      "signal_type": "pest_sign",
+      "description": "Slug activity visible on several emerging seedlings.",
+      "intensity": "medium",
+      "confidence": "high"
+    },
+    {
+      "signal_type": "pollinator_presence",
+      "description": "A few native bees observed nearby, though flowering is still limited.",
+      "intensity": "low",
+      "confidence": "medium"
+    }
+  ],
+  "interpretations": [
+    {
+      "statement": "The hugelkultur structure may be improving moisture retention during early spring establishment.",
+      "basis": "Surface conditions remain moist despite short dry intervals between rainfall events.",
+      "confidence": "medium"
+    },
+    {
+      "statement": "Uneven corn emergence may reflect variation in planting depth, seed vigor, or microdifferences in moisture.",
+      "basis": "Seedlings are present but patchy across the bed.",
+      "confidence": "medium"
+    },
+    {
+      "statement": "Volunteer or companion mustard may be adding an unplanned crucifer element to the polyculture.",
+      "basis": "Mustard seedlings are present around the bed margins.",
+      "confidence": "medium"
+    }
+  ],
+  "uncertainties": [
+    "Bean and squash emergence may still occur later and should not yet be interpreted as failure.",
+    "Fungal activity is suspected beneath the woody layers but has not been directly measured.",
+    "Observed slug pressure may increase or decrease depending on the next weather interval."
+  ],
+  "related_records": [
+    {
+      "record_type": "observation",
+      "ref": "watershed.long_tom",
+      "notes": "Watershed context for the observation."
+    },
+    {
+      "record_type": "other",
+      "ref": "stewardship_unit.veneta_40_acre",
+      "notes": "Stewardship unit context."
+    },
+    {
+      "record_type": "other",
+      "ref": "planting_event.veneta_3sisters_2026_spring",
+      "notes": "Planting event being observed."
+    }
+  ],
+  "media": [],
+  "citations": [],
+  "follow_up_actions": [
+    "Continue monitoring bean and squash emergence.",
+    "Observe slug pressure closely over the next week.",
+    "Record bed moisture after the next dry interval.",
+    "Compare emergence patterns across nearby hugelkultur beds."
+  ],
+  "tags": [
+    "3-sisters",
+    "early-growth",
+    "hugelkultur",
+    "long-tom",
+    "slug-pressure"
+  ],
+  "provenance": {
+    "recorded_by": "cfwhisperer",
+    "recorded_at": "2026-03-18T13:30:00Z",
+    "source_type": "field_note",
+    "source_ref": "field notebook entry for Veneta 3 Sisters observation"
+  },
+  "agent_assistance": [
+    {
+      "agent_name": "ChatGPT",
+      "agent_role": "structuring",
+      "notes": "Assisted with aligning the example record to the observation schema."
+    }
+  ]
 }
