@@ -1,0 +1,95 @@
+{
+  "planting_id": "planting_event.veneta_3sisters_2026_spring",
+  "name": "3 Sisters Plus Planting Trial – Spring 2026",
+  "description": "A 3 Sisters planting trial incorporating corn, beans, squash, and additional companion species. Conducted as part of seed adaptation and soil-building experiments within the Long Tom watershed.",
+  "date_planted": "2026-04-15",
+  "season": "spring",
+  "watershed_id": "watershed.long_tom",
+  "stewardship_unit_id": "stewardship_unit.veneta_40_acre",
+  "location_within_site": "south_hugelkultur_bed_1",
+  "planting_method": "direct_sow",
+  "planting_design": {
+    "type": "polyculture",
+    "pattern": "3_sisters_plus",
+    "notes": "Corn planted first, followed by beans and squash. Additional companion species introduced to support pollinators and soil biology."
+  },
+  "species_planted": [
+    {
+      "species": "Zea mays",
+      "common_name": "Corn",
+      "role": "structure",
+      "seed_lot_id": "seed_lot.corn_local_2025"
+    },
+    {
+      "species": "Phaseolus vulgaris",
+      "common_name": "Bean",
+      "role": "nitrogen_fixer",
+      "seed_lot_id": "seed_lot.anasazi_bean_2025"
+    },
+    {
+      "species": "Cucurbita spp.",
+      "common_name": "Squash",
+      "role": "ground_cover",
+      "seed_lot_id": "seed_lot.squash_mix_2025"
+    }
+  ],
+  "companion_species": [
+    {
+      "common_name": "Mustard",
+      "role": "soil_biofumigant"
+    },
+    {
+      "common_name": "Clover",
+      "role": "living_mulch"
+    }
+  ],
+  "soil_preparation": {
+    "method": "hugelkultur",
+    "inputs": [
+      "rotted_wood",
+      "alpaca_manure",
+      "horse_manure",
+      "woodchips",
+      "hay"
+    ],
+    "notes": "Bed built on existing hugelkultur mound with additional organic matter layering."
+  },
+  "water_conditions": {
+    "initial_soil_moisture": "moderate",
+    "irrigation_used": false,
+    "notes": "Relies primarily on seasonal rainfall and soil water retention from hugelkultur structure."
+  },
+  "weather_conditions": {
+    "temperature_range_c": {
+      "min": 10,
+      "max": 22
+    },
+    "conditions": [
+      "mild",
+      "intermittent_rain"
+    ],
+    "notes": "Typical spring conditions for the Long Tom watershed."
+  },
+  "intended_outcomes": [
+    "improve_soil_structure",
+    "test_seed_adaptation",
+    "increase_biodiversity",
+    "support_pollinators",
+    "evaluate_polyculture_performance"
+  ],
+  "risks_identified": [
+    "late_frost",
+    "slug_pressure",
+    "uneven_germination",
+    "competition_between_species"
+  ],
+  "linked_observation_ids": [],
+  "linked_outcome_ids": [],
+  "notes": "This planting is part of a broader effort to understand polyculture resilience and seed adaptation within watershed-specific conditions.",
+  "metadata": {
+    "status": "active",
+    "created_at": "2026-03-18T13:00:00Z",
+    "updated_at": "2026-03-18T13:00:00Z",
+    "created_by": "cfwhisperer"
+  }
+}
