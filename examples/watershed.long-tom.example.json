@@ -1,0 +1,91 @@
+{
+  "watershed_id": "watershed.long_tom",
+  "name": "Long Tom River Watershed",
+  "alternate_names": [
+    "Long Tom Watershed"
+  ],
+  "description": "The Long Tom River Watershed is a Willamette Valley watershed in Lane and Benton counties, Oregon. It is characterized by agricultural land use, wet prairie remnants, and restoration efforts focused on water quality, habitat connectivity, and soil regeneration.",
+  "hydrology_type": "rainfall",
+  "region": "Lane County, Oregon, USA",
+  "bioregion_id": "bioregion.cascadia",
+  "parent_watershed_id": "watershed.willamette",
+  "outflow": "Willamette River",
+  "headwaters_description": "Originates in the Coast Range west of Eugene, Oregon, flowing eastward into the Willamette River.",
+  "area_sq_km": 1062,
+  "elevation_range_m": {
+    "min": 90,
+    "max": 900
+  },
+  "dominant_soil_types": [
+    "alluvial",
+    "clay loam",
+    "silty clay",
+    "wet prairie soils"
+  ],
+  "dominant_ecosystems": [
+    "agricultural fields",
+    "wet prairie",
+    "riparian corridors",
+    "oak savanna remnants",
+    "mixed forest uplands"
+  ],
+  "climate_notes": "Mediterranean climate with wet winters and dry summers. Increasing summer drought stress and variability in rainfall patterns observed in recent years.",
+  "seasonal_patterns": [
+    "winter rainfall saturation",
+    "spring soil moisture abundance",
+    "summer drought stress",
+    "autumn recharge of soil moisture"
+  ],
+  "ecological_functions": [
+    "water_storage",
+    "water_filtration",
+    "flood_buffering",
+    "nutrient_cycling",
+    "habitat_connectivity",
+    "pollinator_support",
+    "seed_dispersal",
+    "soil_formation",
+    "biodiversity_support"
+  ],
+  "stewardship_risks": [
+    "nutrient_runoff",
+    "erosion",
+    "habitat_fragmentation",
+    "water_extraction",
+    "climate_instability",
+    "invasive_species"
+  ],
+  "seed_adaptation_notes": "Seeds adapted to this watershed often exhibit tolerance to winter saturation and summer drought cycles. Selection pressure favors deep rooting, fungal association, and resilience to compacted or clay-rich soils. Wet prairie and riparian species show strong seasonal adaptation patterns.",
+  "centroid": {
+    "lat": 44.05,
+    "lon": -123.25
+  },
+  "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+      [
+        [-123.50, 44.10],
+        [-123.40, 44.20],
+        [-123.20, 44.25],
+        [-123.10, 44.15],
+        [-123.20, 44.00],
+        [-123.40, 43.95],
+        [-123.50, 44.10]
+      ]
+    ]
+  },
+  "related_council_decision_ids": [
+    "council_decision.lane_county_watershed_rights_2026"
+  ],
+  "related_stewardship_event_ids": [
+    "stewardship_event.long_tom_seed_trials_2026",
+    "stewardship_event.veneta_hugelkultur_2026"
+  ],
+  "metadata": {
+    "status": "active",
+    "created_at": "2026-03-18T12:00:00Z",
+    "updated_at": "2026-03-18T12:00:00Z",
+    "created_by": "cfwhisperer",
+    "notes": "Initial Long Tom watershed example for Cascadia Seed Guild ADL."
+  }
+}
