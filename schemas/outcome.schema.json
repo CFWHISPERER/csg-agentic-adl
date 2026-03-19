@@ -1,0 +1,450 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/CFWHISPERER/csg-agentic-adl/blob/main/schemas/outcome.schema.json",
+  "title": "Outcome",
+  "description": "Defines an outcome as a structured record of what resulted from a planting event, stewardship action, or ecological process over time within a watershed and stewardship context.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "outcome_id",
+    "title",
+    "status",
+    "assessment_date",
+    "outcome_type"
+  ],
+  "properties": {
+    "outcome_id": {
+      "type": "string",
+      "description": "Unique identifier for the outcome record.",
+      "pattern": "^[a-zA-Z0-9._:-]+$"
+    },
+    "title": {
+      "type": "string",
+      "description": "Human-readable title for the outcome.",
+      "minLength": 3
+    },
+    "summary": {
+      "type": "string",
+      "description": "Short summary of the outcome."
+    },
+    "description": {
+      "type": "string",
+      "description": "Longer narrative description of what occurred and why it matters."
+    },
+    "status": {
+      "type": "string",
+      "description": "Lifecycle status of the outcome record.",
+      "enum": [
+        "draft",
+        "active",
+        "review",
+        "final",
+        "archived"
+      ]
+    },
+    "assessment_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Date on which the outcome was assessed."
+    },
+    "outcome_type": {
+      "type": "string",
+      "description": "Primary category of the outcome.",
+      "enum": [
+        "germination_result",
+        "growth_result",
+        "yield_result",
+        "survival_result",
+        "mortality_result",
+        "soil_change",
+        "water_response",
+        "biodiversity_change",
+        "pollinator_response",
+        "pest_result",
+        "disease_result",
+        "seed_quality_result",
+        "adaptation_signal",
+        "restoration_result",
+        "mixed",
+        "other"
+      ]
+    },
+    "season": {
+      "type": "string",
+      "description": "Seasonal context for the outcome.",
+      "enum": [
+        "winter",
+        "spring",
+        "summer",
+        "autumn",
+        "wet_season",
+        "dry_season",
+        "unknown"
+      ]
+    },
+    "watershed_id": {
+      "type": "string",
+      "description": "Reference to the watershed associated with the outcome.",
+      "pattern": "^[a-zA-Z0-9._:-]+$"
+    },
+    "stewardship_unit_id": {
+      "type": "string",
+      "description": "Reference to the stewardship unit associated with the outcome.",
+      "pattern": "^[a-zA-Z0-9._:-]+$"
+    },
+    "related_planting_id": {
+      "type": "string",
+      "description": "Reference to the planting event that this outcome evaluates.",
+      "pattern": "^[a-zA-Z0-9._:-]+$"
+    },
+    "related_observation_ids": {
+      "type": "array",
+      "description": "References to supporting observations used in the outcome assessment.",
+      "items": {
+        "type": "string",
+        "pattern": "^[a-zA-Z0-9._:-]+$"
+      },
+      "uniqueItems": true
+    },
+    "related_seed_lot_ids": {
+      "type": "array",
+      "description": "References to seed lots implicated in the outcome.",
+      "items": {
+        "type": "string",
+        "pattern": "^[a-zA-Z0-9._:-]+$"
+      },
+      "uniqueItems": true
+    },
+    "observed_entities": {
+      "type": "array",
+      "description": "Species, varieties, ecological actors, or site features involved in the outcome.",
+      "items": {
+        "$ref": "#/$defs/entity_reference"
+      }
+    },
+    "evaluation_period": {
+      "type": "object",
+      "description": "Time window across which the outcome was evaluated.",
+      "additionalProperties": false,
+      "properties": {
+        "start_date": {
+          "type": "string",
+          "format": "date"
+        },
+        "end_date": {
+          "type": "string",
+          "format": "date"
+        },
+        "notes": {
+          "type": "string"
+        }
+      }
+    },
+    "result_signals": {
+      "type": "array",
+      "description": "Important quantitative or qualitative indicators of the outcome.",
+      "items": {
+        "$ref": "#/$defs/result_signal"
+      }
+    },
+    "assessment": {
+      "type": "object",
+      "description": "Overall evaluation of the outcome.",
+      "additionalProperties": false,
+      "properties": {
+        "overall_result": {
+          "type": "string",
+          "enum": [
+            "strong_positive",
+            "positive",
+            "mixed",
+            "neutral",
+            "negative",
+            "strong_negative",
+            "inconclusive"
+          ]
+        },
+        "confidence": {
+          "type": "string",
+          "enum": [
+            "low",
+            "medium",
+            "high"
+          ]
+        },
+        "statement": {
+          "type": "string",
+          "description": "Main conclusion drawn from the outcome assessment."
+        },
+        "basis": {
+          "type": "string",
+          "description": "Why this assessment was reached."
+        }
+      }
+    },
+    "ecological_implications": {
+      "type": "array",
+      "description": "Ecological implications suggested by the outcome.",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "management_implications": {
+      "type": "array",
+      "description": "Practical stewardship or management implications suggested by the outcome.",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "adaptation_notes": {
+      "type": "string",
+      "description": "Notes on possible adaptation signals, seed selection implications, or place-based learning."
+    },
+    "uncertainties": {
+      "type": "array",
+      "description": "Known unknowns, ambiguities, or cautionary notes associated with the outcome.",
+      "items": {
+        "type": "string"
+      }
+    },
+    "recommended_next_actions": {
+      "type": "array",
+      "description": "Suggested next actions based on the outcome.",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "media": {
+      "type": "array",
+      "description": "Images, diagrams, audio, or other supporting assets associated with the outcome.",
+      "items": {
+        "$ref": "#/$defs/media_item"
+      }
+    },
+    "tags": {
+      "type": "array",
+      "description": "User-defined tags for grouping and retrieval.",
+      "items": {
+        "type": "string",
+        "pattern": "^[a-z0-9][a-z0-9\\-_]*$"
+      },
+      "uniqueItems": true
+    },
+    "provenance": {
+      "$ref": "#/$defs/provenance"
+    },
+    "agent_assistance": {
+      "type": "array",
+      "description": "AI or software agents that helped structure, summarize, classify, or compare this outcome.",
+      "items": {
+        "$ref": "#/$defs/agent_assistance"
+      }
+    }
+  },
+  "$defs": {
+    "entity_reference": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "label"
+      ],
+      "properties": {
+        "label": {
+          "type": "string",
+          "description": "Primary label for the entity involved in the outcome."
+        },
+        "entity_type": {
+          "type": "string",
+          "enum": [
+            "species",
+            "variety",
+            "seed_lot",
+            "pollinator",
+            "fungal_group",
+            "soil_condition",
+            "habitat_feature",
+            "weather_pattern",
+            "planting_event",
+            "stewardship_unit",
+            "watershed",
+            "other"
+          ]
+        },
+        "scientific_name": {
+          "type": "string"
+        },
+        "common_name": {
+          "type": "string"
+        },
+        "record_ref": {
+          "type": "string",
+          "description": "Path, URL, or internal identifier for a linked record."
+        },
+        "notes": {
+          "type": "string"
+        }
+      }
+    },
+    "result_signal": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "signal_type",
+        "description"
+      ],
+      "properties": {
+        "signal_type": {
+          "type": "string",
+          "enum": [
+            "germination_rate",
+            "survival_rate",
+            "yield",
+            "vigor",
+            "uniformity",
+            "pest_pressure",
+            "disease_pressure",
+            "soil_structure",
+            "soil_moisture",
+            "water_retention",
+            "pollinator_activity",
+            "species_diversity",
+            "seed_quality",
+            "root_development",
+            "cover_density",
+            "other"
+          ]
+        },
+        "value": {
+          "type": "number",
+          "description": "Optional numeric value associated with the signal."
+        },
+        "unit": {
+          "type": "string",
+          "description": "Optional unit for the signal value."
+        },
+        "description": {
+          "type": "string",
+          "description": "Narrative explanation of the signal."
+        },
+        "direction": {
+          "type": "string",
+          "description": "Direction of change or quality of result.",
+          "enum": [
+            "improved",
+            "declined",
+            "stable",
+            "mixed",
+            "unknown"
+          ]
+        },
+        "confidence": {
+          "type": "string",
+          "enum": [
+            "low",
+            "medium",
+            "high"
+          ]
+        }
+      }
+    },
+    "media_item": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "media_type",
+        "ref"
+      ],
+      "properties": {
+        "media_type": {
+          "type": "string",
+          "enum": [
+            "image",
+            "audio",
+            "video",
+            "scan",
+            "diagram",
+            "document",
+            "other"
+          ]
+        },
+        "ref": {
+          "type": "string",
+          "description": "File path, URL, or asset identifier."
+        },
+        "caption": {
+          "type": "string"
+        },
+        "credit": {
+          "type": "string"
+        }
+      }
+    },
+    "provenance": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "recorded_by": {
+          "type": "string",
+          "description": "Who created the outcome record."
+        },
+        "recorded_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "last_modified_by": {
+          "type": "string"
+        },
+        "last_modified_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "source_type": {
+          "type": "string",
+          "enum": [
+            "manual_entry",
+            "derived_from_observations",
+            "field_assessment",
+            "agent_generated",
+            "imported",
+            "other"
+          ]
+        },
+        "source_ref": {
+          "type": "string",
+          "description": "Reference to an assessment note, document, or source set."
+        }
+      }
+    },
+    "agent_assistance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "agent_name",
+        "agent_role"
+      ],
+      "properties": {
+        "agent_name": {
+          "type": "string"
+        },
+        "agent_role": {
+          "type": "string",
+          "enum": [
+            "summarization",
+            "structuring",
+            "classification",
+            "comparison",
+            "drafting",
+            "analysis",
+            "other"
+          ]
+        },
+        "notes": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}
