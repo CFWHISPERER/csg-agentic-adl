@@ -1,0 +1,262 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/CFWHISPERER/csg-agentic-adl/blob/main/schemas/watershed.schema.json",
+  "title": "Watershed",
+  "description": "Defines a watershed as a primary ecological boundary for stewardship, observation, seed adaptation, and hydrological context within the Cascadia Seed Guild Agentic Data Layer.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "watershed_id",
+    "name",
+    "hydrology_type",
+    "region",
+    "outflow"
+  ],
+  "properties": {
+    "watershed_id": {
+      "type": "string",
+      "description": "Unique identifier for the watershed record.",
+      "pattern": "^[a-zA-Z0-9._:-]+$"
+    },
+    "name": {
+      "type": "string",
+      "description": "Common name of the watershed.",
+      "minLength": 1
+    },
+    "alternate_names": {
+      "type": "array",
+      "description": "Other names, legacy names, or indigenous names associated with the watershed.",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "uniqueItems": true
+    },
+    "description": {
+      "type": "string",
+      "description": "Narrative description of the watershed and its ecological significance."
+    },
+    "hydrology_type": {
+      "type": "string",
+      "description": "Primary hydrological character of the watershed.",
+      "enum": [
+        "rainfall",
+        "snowmelt",
+        "mixed",
+        "spring-fed",
+        "glacial",
+        "tidal",
+        "unknown"
+      ]
+    },
+    "region": {
+      "type": "string",
+      "description": "Administrative or geographic region in which the watershed is primarily situated."
+    },
+    "bioregion_id": {
+      "type": "string",
+      "description": "Reference to a related bioregion record, if applicable.",
+      "pattern": "^[a-zA-Z0-9._:-]+$"
+    },
+    "parent_watershed_id": {
+      "type": "string",
+      "description": "Reference to a larger watershed containing this watershed, if nested.",
+      "pattern": "^[a-zA-Z0-9._:-]+$"
+    },
+    "outflow": {
+      "type": "string",
+      "description": "Primary downstream receiving body, such as a river, estuary, bay, lake, or ocean."
+    },
+    "headwaters_description": {
+      "type": "string",
+      "description": "Description of the watershed's headwaters or upper source area."
+    },
+    "area_sq_km": {
+      "type": "number",
+      "description": "Approximate area of the watershed in square kilometers.",
+      "minimum": 0
+    },
+    "elevation_range_m": {
+      "type": "object",
+      "description": "Approximate elevation range in meters.",
+      "additionalProperties": false,
+      "properties": {
+        "min": {
+          "type": "number"
+        },
+        "max": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "min",
+        "max"
+      ]
+    },
+    "dominant_soil_types": {
+      "type": "array",
+      "description": "Major soil types associated with the watershed.",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "uniqueItems": true
+    },
+    "dominant_ecosystems": {
+      "type": "array",
+      "description": "Major ecosystem types present within the watershed.",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "uniqueItems": true
+    },
+    "climate_notes": {
+      "type": "string",
+      "description": "General climatic notes relevant to the watershed."
+    },
+    "seasonal_patterns": {
+      "type": "array",
+      "description": "Important seasonal patterns affecting stewardship and ecological behavior.",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "ecological_functions": {
+      "type": "array",
+      "description": "Key ecological functions associated with the watershed.",
+      "items": {
+        "type": "string",
+        "enum": [
+          "water_storage",
+          "water_filtration",
+          "flood_buffering",
+          "sediment_transport",
+          "nutrient_cycling",
+          "habitat_connectivity",
+          "pollinator_support",
+          "seed_dispersal",
+          "soil_formation",
+          "biodiversity_support",
+          "cultural_stewardship",
+          "unknown"
+        ]
+      },
+      "uniqueItems": true
+    },
+    "stewardship_risks": {
+      "type": "array",
+      "description": "Known ecological or stewardship risks affecting the watershed.",
+      "items": {
+        "type": "string",
+        "enum": [
+          "erosion",
+          "flooding",
+          "drought",
+          "wildfire",
+          "pollution",
+          "nutrient_runoff",
+          "habitat_fragmentation",
+          "salinity_intrusion",
+          "deforestation",
+          "invasive_species",
+          "water_extraction",
+          "climate_instability",
+          "unknown"
+        ]
+      },
+      "uniqueItems": true
+    },
+    "seed_adaptation_notes": {
+      "type": "string",
+      "description": "Notes on how watershed conditions may influence seed adaptation, propagation, or selection."
+    },
+    "geometry": {
+      "type": "object",
+      "description": "Optional geospatial representation of the watershed boundary.",
+      "additionalProperties": true,
+      "properties": {
+        "type": {
+          "type": "string",
+          "description": "GeoJSON geometry type or similar representation type."
+        },
+        "coordinates": {
+          "description": "Coordinates for the geometry, typically following GeoJSON conventions."
+        }
+      }
+    },
+    "centroid": {
+      "type": "object",
+      "description": "Approximate centroid of the watershed.",
+      "additionalProperties": false,
+      "properties": {
+        "lat": {
+          "type": "number",
+          "minimum": -90,
+          "maximum": 90
+        },
+        "lon": {
+          "type": "number",
+          "minimum": -180,
+          "maximum": 180
+        }
+      },
+      "required": [
+        "lat",
+        "lon"
+      ]
+    },
+    "related_council_decision_ids": {
+      "type": "array",
+      "description": "References to council decisions relevant to this watershed.",
+      "items": {
+        "type": "string",
+        "pattern": "^[a-zA-Z0-9._:-]+$"
+      },
+      "uniqueItems": true
+    },
+    "related_stewardship_event_ids": {
+      "type": "array",
+      "description": "References to stewardship events associated with this watershed.",
+      "items": {
+        "type": "string",
+        "pattern": "^[a-zA-Z0-9._:-]+$"
+      },
+      "uniqueItems": true
+    },
+    "metadata": {
+      "type": "object",
+      "description": "Optional metadata for provenance, authorship, and versioning.",
+      "additionalProperties": false,
+      "properties": {
+        "status": {
+          "type": "string",
+          "enum": [
+            "draft",
+            "review",
+            "active",
+            "archived"
+          ]
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "updated_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "created_by": {
+          "type": "string"
+        },
+        "updated_by": {
+          "type": "string"
+        },
+        "notes": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}
