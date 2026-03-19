@@ -1,0 +1,145 @@
+{
+  "outcome_id": "outcome.veneta_3sisters_2026_spring_establishment",
+  "title": "3 Sisters Plus Spring 2026 Establishment Outcome",
+  "summary": "Mixed but promising early establishment with strong moisture retention, uneven corn germination, delayed bean and squash emergence, and moderate slug pressure.",
+  "description": "This outcome evaluates the early establishment phase of the Spring 2026 3 Sisters Plus planting at the Veneta stewardship unit. Observations indicate strong soil moisture retention associated with the hugelkultur bed, uneven corn germination, delayed emergence of beans and squash, and moderate slug pressure affecting some seedlings. Companion species such as clover and mustard are present and contributing to biodiversity.",
+  "status": "active",
+  "assessment_date": "2026-05-10",
+  "outcome_type": "mixed",
+  "season": "spring",
+  "watershed_id": "watershed.long_tom",
+  "stewardship_unit_id": "stewardship_unit.veneta_40_acre",
+  "related_planting_id": "planting_event.veneta_3sisters_2026_spring",
+  "related_observation_ids": [
+    "observation-veneta-3sisters-2026-early-growth-01"
+  ],
+  "related_seed_lot_ids": [
+    "seed_lot.corn_local_2025",
+    "seed_lot.anasazi_bean_2025",
+    "seed_lot.squash_mix_2025"
+  ],
+  "observed_entities": [
+    {
+      "label": "Zea mays",
+      "entity_type": "species",
+      "scientific_name": "Zea mays",
+      "common_name": "Corn",
+      "record_ref": "seed_lot.corn_local_2025",
+      "notes": "Primary structural species showing uneven germination."
+    },
+    {
+      "label": "Phaseolus vulgaris",
+      "entity_type": "species",
+      "scientific_name": "Phaseolus vulgaris",
+      "common_name": "Bean",
+      "record_ref": "seed_lot.anasazi_bean_2025",
+      "notes": "Delayed emergence relative to corn."
+    },
+    {
+      "label": "Cucurbita spp.",
+      "entity_type": "species",
+      "scientific_name": "Cucurbita spp.",
+      "common_name": "Squash",
+      "record_ref": "seed_lot.squash_mix_2025",
+      "notes": "Delayed emergence; not yet fully established at time of assessment."
+    },
+    {
+      "label": "Trifolium spp.",
+      "entity_type": "species",
+      "common_name": "Clover",
+      "notes": "Emerging companion species contributing to ground cover."
+    },
+    {
+      "label": "Brassica spp.",
+      "entity_type": "species",
+      "common_name": "Mustard",
+      "notes": "Volunteer presence adding crucifer diversity."
+    },
+    {
+      "label": "Slugs",
+      "entity_type": "other",
+      "common_name": "Slugs",
+      "notes": "Moderate pest pressure impacting early seedlings."
+    }
+  ],
+  "evaluation_period": {
+    "start_date": "2026-04-15",
+    "end_date": "2026-05-10",
+    "notes": "From planting date through early establishment phase."
+  },
+  "result_signals": [
+    {
+      "signal_type": "germination_rate",
+      "description": "Corn germination occurred but was uneven across the bed.",
+      "direction": "mixed",
+      "confidence": "medium"
+    },
+    {
+      "signal_type": "soil_moisture",
+      "description": "Soil moisture retention is strong within the hugelkultur bed.",
+      "direction": "improved",
+      "confidence": "high"
+    },
+    {
+      "signal_type": "pest_pressure",
+      "description": "Slug activity affecting some emerging seedlings.",
+      "direction": "declined",
+      "confidence": "medium"
+    },
+    {
+      "signal_type": "species_diversity",
+      "description": "Presence of clover and mustard contributing to early biodiversity.",
+      "direction": "improved",
+      "confidence": "medium"
+    }
+  ],
+  "assessment": {
+    "overall_result": "mixed",
+    "confidence": "medium",
+    "statement": "The planting shows promising soil and ecological conditions, but uneven germination and pest pressure create variability in establishment.",
+    "basis": "Derived from early field observations including emergence patterns, soil moisture retention, and visible pest activity."
+  },
+  "ecological_implications": [
+    "Hugelkultur structure may enhance early-season water retention.",
+    "Polyculture systems can introduce both resilience and variability in early establishment.",
+    "Volunteer species may contribute positively to biodiversity and soil processes."
+  ],
+  "management_implications": [
+    "Monitor and manage slug pressure during early establishment phases.",
+    "Consider adjusting planting depth or timing to improve uniform germination.",
+    "Observe long-term effects of companion and volunteer species on system balance."
+  ],
+  "adaptation_notes": "Variation in corn germination and delayed emergence of companion species may provide useful signals for selecting locally adapted seed over successive seasons.",
+  "uncertainties": [
+    "Bean and squash establishment outcomes are not yet fully known.",
+    "Long-term impact of slug pressure remains uncertain.",
+    "Fungal and microbial dynamics within the hugelkultur bed are inferred but not measured."
+  ],
+  "recommended_next_actions": [
+    "Continue monitoring emergence and survival rates over the next 2–3 weeks.",
+    "Document slug activity trends and potential mitigation strategies.",
+    "Compare results with other nearby planting beds.",
+    "Capture follow-up observations to refine outcome assessment."
+  ],
+  "media": [],
+  "tags": [
+    "3-sisters",
+    "hugelkultur",
+    "early-establishment",
+    "long-tom",
+    "polyculture"
+  ],
+  "provenance": {
+    "recorded_by": "cfwhisperer",
+    "recorded_at": "2026-03-18T14:30:00Z",
+    "source_type": "derived_from_observations",
+    "source_ref": "Compiled from early growth observation and field notes"
+  },
+  "agent_assistance": [
+    {
+      "agent_name": "ChatGPT",
+      "agent_role": "analysis",
+      "notes": "Assisted in structuring outcome from linked observations."
+    }
+  ]
+}
