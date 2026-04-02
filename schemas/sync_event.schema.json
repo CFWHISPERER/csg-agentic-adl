@@ -1,0 +1,116 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://lichenproject.com/schemas/sync_event.schema.json",
+  "title": "Sync Event",
+  "description": "A record of synchronization activity between two nodes or between a node and a persistent store.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "sync_id",
+    "source_node_ref",
+    "target_node_ref",
+    "sync_status",
+    "started_at"
+  ],
+  "properties": {
+    "sync_id": {
+      "type": "string"
+    },
+    "source_node_ref": {
+      "type": "string",
+      "description": "Reference to the originating device node."
+    },
+    "target_node_ref": {
+      "type": "string",
+      "description": "Reference to the receiving device node or storage node."
+    },
+    "sync_type": {
+      "type": "string",
+      "enum": [
+        "manual",
+        "scheduled",
+        "opportunistic",
+        "initial_seed_load",
+        "backup",
+        "conflict_resolution"
+      ]
+    },
+    "objects_synced": {
+      "type": "array",
+      "description": "Summary of object types or identifiers included in the sync.",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "object_type",
+          "count"
+        ],
+        "properties": {
+          "object_type": {
+            "type": "string",
+            "enum": [
+              "seed_lot",
+              "seed_accession",
+              "species_record",
+              "observation",
+              "planting_event",
+              "stewardship_event",
+              "storage_location",
+              "viability_test",
+              "recommendation",
+              "other"
+            ]
+          },
+          "count": {
+            "type": "integer",
+            "minimum": 0
+          }
+        }
+      }
+    },
+    "sync_status": {
+      "type": "string",
+      "enum": [
+        "started",
+        "completed",
+        "partial",
+        "failed",
+        "conflicted",
+        "cancelled"
+      ]
+    },
+    "records_sent": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "records_received": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "conflict_count": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "conflict_notes": {
+      "type": "string"
+    },
+    "error_message": {
+      "type": "string"
+    },
+    "started_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "completed_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "initiated_by": {
+      "type": "string",
+      "description": "Reference to steward, agent, or system process initiating the sync."
+    },
+    "notes": {
+      "type": "string"
+    }
+  }
+}
