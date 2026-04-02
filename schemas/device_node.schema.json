@@ -1,0 +1,112 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://lichenproject.com/schemas/device_node.schema.json",
+  "title": "Device Node",
+  "description": "A local computational node participating in stewardship, observation, storage, or synchronization activities.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "node_id",
+    "node_type",
+    "name",
+    "status",
+    "capabilities",
+    "created_at"
+  ],
+  "properties": {
+    "node_id": {
+      "type": "string",
+      "description": "Unique identifier for the device node."
+    },
+    "node_type": {
+      "type": "string",
+      "enum": [
+        "phone",
+        "raspberry_pi",
+        "vault_node",
+        "sensor_node",
+        "nas",
+        "desktop",
+        "laptop",
+        "other"
+      ]
+    },
+    "name": {
+      "type": "string",
+      "description": "Human-readable name for the node."
+    },
+    "description": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "active",
+        "inactive",
+        "offline",
+        "retired",
+        "maintenance"
+      ]
+    },
+    "location_ref": {
+      "type": "string",
+      "description": "Reference to a place, stewardship unit, watershed, bioregion, or storage context."
+    },
+    "steward_ref": {
+      "type": "string",
+      "description": "Reference to the steward or responsible party for this node."
+    },
+    "capabilities": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "qr_scan",
+          "local_storage",
+          "sync",
+          "sensor_read",
+          "camera",
+          "recommendation_engine",
+          "inventory_access",
+          "offline_mode",
+          "api_host",
+          "backup"
+        ]
+      },
+      "uniqueItems": true
+    },
+    "connectivity": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "wifi": { "type": "boolean" },
+        "bluetooth": { "type": "boolean" },
+        "ethernet": { "type": "boolean" },
+        "cellular": { "type": "boolean" },
+        "internet_required": { "type": "boolean" }
+      }
+    },
+    "software_version": {
+      "type": "string"
+    },
+    "last_sync_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "last_seen_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "updated_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "notes": {
+      "type": "string"
+    }
+  }
+}
