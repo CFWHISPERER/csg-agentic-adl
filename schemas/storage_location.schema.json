@@ -1,0 +1,113 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://lichenproject.com/schemas/storage_location.schema.json",
+  "title": "Storage Location",
+  "description": "A physical or logical place where seeds, tools, or stewardship materials are stored.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "storage_location_id",
+    "name",
+    "location_type",
+    "status",
+    "created_at"
+  ],
+  "properties": {
+    "storage_location_id": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "location_type": {
+      "type": "string",
+      "enum": [
+        "room",
+        "shelf",
+        "cabinet",
+        "ammo_can",
+        "jar",
+        "bin",
+        "freezer",
+        "fridge",
+        "shipping_container",
+        "seed_library",
+        "greenhouse",
+        "vault",
+        "other"
+      ]
+    },
+    "parent_location_ref": {
+      "type": "string",
+      "description": "Reference to another storage location containing this one."
+    },
+    "node_ref": {
+      "type": "string",
+      "description": "Reference to the device node associated with this storage location, if any."
+    },
+    "location_ref": {
+      "type": "string",
+      "description": "Reference to a stewardship unit, place, watershed, or site."
+    },
+    "physical_label": {
+      "type": "string",
+      "description": "Human-facing label physically attached to the location."
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "active",
+        "inactive",
+        "sealed",
+        "retired",
+        "maintenance"
+      ]
+    },
+    "environmental_conditions": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "temperature_c_min": { "type": "number" },
+        "temperature_c_max": { "type": "number" },
+        "humidity_percent_min": { "type": "number", "minimum": 0, "maximum": 100 },
+        "humidity_percent_max": { "type": "number", "minimum": 0, "maximum": 100 },
+        "light_exposure": {
+          "type": "string",
+          "enum": [
+            "dark",
+            "low",
+            "moderate",
+            "high",
+            "unknown"
+          ]
+        }
+      }
+    },
+    "security_level": {
+      "type": "string",
+      "enum": [
+        "open",
+        "restricted",
+        "steward_only",
+        "archival"
+      ]
+    },
+    "capacity_notes": {
+      "type": "string"
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "updated_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "notes": {
+      "type": "string"
+    }
+  }
+}
