@@ -1,0 +1,125 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://lichenproject.com/schemas/viability_test.schema.json",
+  "title": "Viability Test",
+  "description": "A record of germination or other viability testing performed on a seed lot.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "viability_test_id",
+    "seed_lot_ref",
+    "test_date",
+    "test_method",
+    "sample_size",
+    "germinated_count"
+  ],
+  "properties": {
+    "viability_test_id": {
+      "type": "string"
+    },
+    "seed_lot_ref": {
+      "type": "string",
+      "description": "Reference to the seed lot being tested."
+    },
+    "storage_location_ref": {
+      "type": "string",
+      "description": "Reference to the storage location from which the tested seeds were drawn."
+    },
+    "tested_by": {
+      "type": "string",
+      "description": "Reference to the steward, node, or system performing the test."
+    },
+    "test_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "test_method": {
+      "type": "string",
+      "enum": [
+        "paper_towel",
+        "soil_tray",
+        "direct_sow_sample",
+        "lab_test",
+        "tetrazolium",
+        "visual_inspection",
+        "other"
+      ]
+    },
+    "sample_size": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "germinated_count": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "viability_percent": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 100,
+      "description": "May be calculated from germinated_count and sample_size."
+    },
+    "days_to_first_germination": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "days_to_last_germination": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "test_conditions": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "temperature_c": { "type": "number" },
+        "humidity_percent": { "type": "number", "minimum": 0, "maximum": 100 },
+        "light_conditions": {
+          "type": "string",
+          "enum": [
+            "dark",
+            "indirect_light",
+            "direct_light",
+            "alternating",
+            "unknown"
+          ]
+        },
+        "medium": {
+          "type": "string"
+        }
+      }
+    },
+    "result": {
+      "type": "string",
+      "enum": [
+        "excellent",
+        "good",
+        "marginal",
+        "poor",
+        "failed",
+        "inconclusive"
+      ]
+    },
+    "recommended_action": {
+      "type": "string",
+      "enum": [
+        "retain_in_storage",
+        "regrow_this_season",
+        "distribute_soon",
+        "archive",
+        "discard",
+        "retest"
+      ]
+    },
+    "notes": {
+      "type": "string"
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "updated_at": {
+      "type": "string",
+      "format": "date-time"
+    }
+  }
+}
