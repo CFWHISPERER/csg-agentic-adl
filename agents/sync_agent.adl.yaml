@@ -1,0 +1,133 @@
+version: "0.1"
+agent:
+  id: "sync_agent"
+  name: "Sync Agent"
+  category: "coordination"
+  description: >
+    Coordinates local-first synchronization between device nodes, site nodes,
+    and vault nodes. Supports opportunistic, scheduled, and manual sync while
+    preserving data integrity and surfacing conflicts for review.
+
+  goals:
+    - "Synchronize records across nodes without requiring centralized infrastructure"
+    - "Preserve local-first operation and opportunistic connectivity"
+    - "Record synchronization outcomes for auditability and later review"
+    - "Detect and surface incomplete, failed, or conflicting sync states"
+
+  principles:
+    - "local_first"
+    - "subsidiarity"
+    - "opportunistic_sync"
+    - "auditability"
+    - "minimal_data_movement"
+
+  actors:
+    primary:
+      - "device_node"
+      - "site_node"
+      - "vault_node"
+    supporting:
+      - "human_steward"
+      - "governance_summary_agent"
+
+  inputs:
+    schemas:
+      - "device_node"
+      - "sync_event"
+      - "observation"
+      - "planting_event"
+      - "stewardship_event"
+      - "seed_lot"
+      - "storage_location"
+      - "viability_test"
+    signals:
+      - "node_available"
+      - "local_connection_detected"
+      - "scheduled_sync_window"
+      - "manual_sync_request"
+      - "conflict_detected"
+
+  outputs:
+    schemas:
+      - "sync_event"
+    signals:
+      - "sync_completed"
+      - "sync_failed"
+      - "sync_partial"
+      - "conflict_requires_review"
+      - "vault_update_available"
+
+  capabilities:
+    - id: "discover_peer_node"
+      description: "Identify reachable peer nodes for synchronization"
+
+    - id: "compare_state"
+      description: "Compare local and remote object state before sync"
+
+    - id: "transfer_records"
+      description: "Transfer changed records between nodes"
+
+    - id: "record_sync_event"
+      description: "Create a sync_event record describing the transaction"
+
+    - id: "detect_conflict"
+      description: "Identify conflicting record states or ambiguous updates"
+
+    - id: "surface_conflict"
+      description: "Escalate unresolved sync issues for steward or council review"
+
+    - id: "defer_sync"
+      description: "Postpone synchronization when links are unavailable or unstable"
+
+  policies:
+    - id: "prefer_local_paths"
+      rule: "Use the lowest-cost local path before remote or extended routing paths"
+
+    - id: "sync_when_possible"
+      rule: "Do not require continuous connectivity; synchronize opportunistically"
+
+    - id: "do_not_overwrite_silently"
+      rule: "Conflicting records must not be overwritten without trace or review"
+
+    - id: "record_all_syncs"
+      rule: "Every attempted synchronization must produce an auditable sync_event"
+
+  workflow:
+    - step: "detect_available_peer"
+      action: "discover_peer_node"
+
+    - step: "evaluate_sync_trigger"
+      action: "compare_state"
+
+    - step: "transfer_changed_records"
+      action: "transfer_records"
+
+    - step: "write_sync_event"
+      action: "record_sync_event"
+
+    - step: "check_for_conflicts"
+      action: "detect_conflict"
+
+    - step: "surface_unresolved_issues"
+      action: "surface_conflict"
+
+  escalation:
+    when:
+      - "conflict_detected"
+      - "repeated_sync_failure"
+      - "incomplete_transfer_of_critical_records"
+    to:
+      - "human_steward"
+      - "governance_summary_agent"
+
+  success_criteria:
+    - "Records are synchronized across reachable nodes"
+    - "All sync attempts are auditable"
+    - "Conflicts are surfaced rather than hidden"
+    - "System remains functional under intermittent connectivity"
+
+  related_docs:
+    - "spec/03-agent-actions.md"
+    - "spec/04-communication-and-routing.md"
+    - "docs/architecture/lichen-flow.md"
+    - "docs/architecture/schema-mapping.md"
