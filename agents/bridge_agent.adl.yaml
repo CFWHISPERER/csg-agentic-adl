@@ -1,0 +1,121 @@
+version: "0.1"
+agent:
+  id: "bridge_agent"
+  name: "Bridge Agent"
+  category: "communication"
+  description: >
+    Connects heterogeneous interfaces and enables routing between otherwise
+    dissimilar node types and transport layers. Supports local-first,
+    interface-agnostic communication without introducing centralized control.
+
+  goals:
+    - "Enable communication across different interface types"
+    - "Preserve local sovereignty while extending reachable paths"
+    - "Route messages and sync traffic across bridgeable networks"
+    - "Support resilient communication under mixed hardware conditions"
+
+  principles:
+    - "interface_agnostic_routing"
+    - "local_first"
+    - "bridgeable_systems"
+    - "encrypted_by_default"
+    - "decentralized_coordination"
+
+  actors:
+    primary:
+      - "bridge_node"
+      - "site_node"
+    supporting:
+      - "device_node"
+      - "sync_agent"
+
+  inputs:
+    schemas:
+      - "device_node"
+      - "sync_event"
+    signals:
+      - "interface_available"
+      - "route_request"
+      - "node_discovered"
+      - "transport_unavailable"
+      - "bridge_path_detected"
+
+  outputs:
+    signals:
+      - "route_established"
+      - "route_unavailable"
+      - "bridge_active"
+      - "bridge_degraded"
+      - "message_forwarded"
+      - "sync_path_available"
+
+  capabilities:
+    - id: "discover_interfaces"
+      description: "Detect available communication interfaces on the current node"
+
+    - id: "advertise_reachability"
+      description: "Signal that this node can bridge between reachable segments"
+
+    - id: "establish_route"
+      description: "Create a route between otherwise dissimilar interface domains"
+
+    - id: "forward_payload"
+      description: "Forward message or sync payloads without assuming shared hardware"
+
+    - id: "monitor_link_quality"
+      description: "Track route quality and degrade gracefully when links weaken"
+
+    - id: "failover_path"
+      description: "Attempt alternate routing paths when the primary bridge fails"
+
+  policies:
+    - id: "no_central_authority"
+      rule: "The bridge must not function as a centralized gatekeeper"
+
+    - id: "prefer_shortest_viable_path"
+      rule: "Choose the lowest-cost viable path that preserves local-first communication"
+
+    - id: "support_mixed_interfaces"
+      rule: "Bridge functionality must not assume a single radio, protocol, or vendor"
+
+    - id: "preserve_security"
+      rule: "Forwarding must not weaken encryption, authentication, or origin protection"
+
+  workflow:
+    - step: "detect_local_interfaces"
+      action: "discover_interfaces"
+
+    - step: "announce_bridge_capacity"
+      action: "advertise_reachability"
+
+    - step: "receive_route_request"
+      action: "establish_route"
+
+    - step: "forward_payloads"
+      action: "forward_payload"
+
+    - step: "monitor_route_health"
+      action: "monitor_link_quality"
+
+    - step: "switch_to_alternate_path_if_needed"
+      action: "failover_path"
+
+  escalation:
+    when:
+      - "route_unavailable"
+      - "bridge_degraded"
+      - "repeated_link_failure"
+    to:
+      - "sync_agent"
+      - "human_steward"
+
+  success_criteria:
+    - "Nodes with different interfaces can communicate through a bridge node"
+    - "Routing remains decentralized and local-first"
+    - "Payload forwarding preserves security properties"
+    - "Alternate paths can be attempted under degraded conditions"
+
+  related_docs:
+    - "spec/04-communication-and-routing.md"
+    - "docs/architecture/communication-layer.md"
+    - "docs/architecture/lichen-stack.md"
